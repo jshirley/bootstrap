@@ -1066,14 +1066,14 @@ $('#my-alert').bind('closed', function () {
     ================================================== -->
     <section id="collapse">
       <div class="page-header">
-        <h1>{{_i}}Collapse{{/i}} <small>bootstrap-collapse.js</small></h1>
+        <h1>{{_i}}Collapse{{/i}} <small>.plug( Y.Bootstrap.Collapse );</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>{{_i}}About{{/i}}</h3>
           <p>{{_i}}Get base styles and flexible support for collapsible components like accordions and navigation.{{/i}}</p>
-          <a href="assets/js/bootstrap-collapse.js" target="_blank" class="btn">{{_i}}Download file{{/i}}</a>
-          <p class="muted"><strong>*</strong> {{_i}}Requires the Transitions plugin to be included.{{/i}}</p>
+          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-collapse.js" target="_blank" class="btn">{{_i}}View Source{{/i}}</a>
+          <p class="muted">{{_i}}If the browser supports css3 transitions, smooth animations will be enabled automatically.{{/i}}</p>
        </div>
         <div class="span9 columns">
           <h2>{{_i}}Example accordion{{/i}}</h2>
@@ -1120,9 +1120,9 @@ $('#my-alert').bind('closed', function () {
 
 
           <hr>
-          <h2>{{_i}}Using bootstrap-collapse.js{{/i}}</h2>
+          <h2>{{_i}}Using gallery-bootstrap-collapse{{/i}}</h2>
           <p>{{_i}}Enable via javascript:{{/i}}</p>
-          <pre class="prettyprint linenums">$(".collapse").collapse()</pre>
+          <pre class="prettyprint linenums">$(".collapse").plug( Y.Bootstrap.Collapse );</pre>
           <h3>{{_i}}Options{{/i}}</h3>
           <table class="table table-bordered table-striped">
             <thead>
@@ -1135,16 +1135,22 @@ $('#my-alert').bind('closed', function () {
             </thead>
             <tbody>
              <tr>
-               <td>{{_i}}parent{{/i}}</td>
+               <td>{{_i}}groupSelector{{/i}}</td>
                <td>{{_i}}selector{{/i}}</td>
-               <td>false</td>
-               <td>{{_i}}If selector then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior){{/i}}</td>
+               <td>&gt; .accordion-group &gt; .in</td>
+               <td>{{_i}}Selector to use to collapse all elements under the specified parent (similar to traditional accordion behavior){{/i}}</td>
              </tr>
              <tr>
-               <td>{{_i}}toggle{{/i}}</td>
-               <td>{{_i}}boolean{{/i}}</td>
-               <td>true</td>
-               <td>{{_i}}Toggles the collapsible element on invocation{{/i}}</td>
+               <td>{{_i}}duration{{/i}}</td>
+               <td>{{_i}}number{{/i}}</td>
+               <td>0.25</td>
+               <td>{{_i}}Seconds to animate the closing using transitions.{{/i}}</td>
+             </tr>
+            <tr>
+               <td>{{_i}}easing{{/i}}</td>
+               <td>{{_i}}String{{/i}}</td>
+               <td>ease-in</td>
+               <td>{{_i}}What type of easing to use for the transitions.{{/i}}</td>
              </tr>
             </tbody>
           </table>
@@ -1161,17 +1167,17 @@ $('#my-alert').bind('closed', function () {
             {{_i}}To add accordion-like group management to a collapsible control, add the data attribute <code>data-parent="#selector"</code>. Refer to the demo to see this in action.{{/i}}
           </div>
           <h3>{{_i}}Methods{{/i}}</h3>
-          <h4>.collapse({{_i}}options{{/i}})</h4>
-          <p>{{_i}}Activates your content as a collapsible element. Accepts an optional options <code>object</code>.{{/i}}
+          <h4>Plug it in!</h4>
+          <p>{{_i}}First, plug in the <code>Y.Bootstrap.Collapse</code> to the node. Accepts an optional options <code>object</code>.{{/i}}
 <pre class="prettyprint linenums">
-$('#myCollapsible').collapse({
-  toggle: false
+Y.one('#myCollapsible').plug( Y.Bootstrap.Collapse, {
+  duration: 1
 })</pre>
-          <h4>.collapse('toggle')</h4>
+          <h4>.collapse.toggle()</h4>
           <p>{{_i}}Toggles a collapsible element to shown or hidden.{{/i}}</p>
-          <h4>.collapse('show')</h4>
+          <h4>.collapse.show()</h4>
           <p>{{_i}}Shows a collapsible element.{{/i}}</p>
-          <h4>.collapse('hide')</h4>
+          <h4>.collapse.hide()</h4>
           <p>{{_i}}Hides a collapsible element.{{/i}}</p>
           <h3>{{_i}}Events{{/i}}</h3>
           <p>
@@ -1213,7 +1219,6 @@ $('#myCollapsible').on('hidden', function () {
         </div>
       </div>
     </section>
-
 
 
      <!-- Carousel

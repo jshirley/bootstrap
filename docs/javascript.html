@@ -1143,14 +1143,14 @@ $('#my-alert').bind('closed', function () {
     ================================================== -->
     <section id="collapse">
       <div class="page-header">
-        <h1>Collapse <small>bootstrap-collapse.js</small></h1>
+        <h1>Collapse <small>.plug( Y.Bootstrap.Collapse );</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About</h3>
           <p>Get base styles and flexible support for collapsible components like accordions and navigation.</p>
-          <a href="assets/js/bootstrap-collapse.js" target="_blank" class="btn">Download file</a>
-          <p class="muted"><strong>*</strong> Requires the Transitions plugin to be included.</p>
+          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-collapse.js" target="_blank" class="btn">View Source</a>
+          <p class="muted">If the browser supports css3 transitions, smooth animations will be enabled automatically.</p>
        </div>
         <div class="span9 columns">
           <h2>Example accordion</h2>
@@ -1197,9 +1197,9 @@ $('#my-alert').bind('closed', function () {
 
 
           <hr>
-          <h2>Using bootstrap-collapse.js</h2>
+          <h2>Using gallery-bootstrap-collapse</h2>
           <p>Enable via javascript:</p>
-          <pre class="prettyprint linenums">$(".collapse").collapse()</pre>
+          <pre class="prettyprint linenums">$(".collapse").plug( Y.Bootstrap.Collapse );</pre>
           <h3>Options</h3>
           <table class="table table-bordered table-striped">
             <thead>
@@ -1212,16 +1212,22 @@ $('#my-alert').bind('closed', function () {
             </thead>
             <tbody>
              <tr>
-               <td>parent</td>
+               <td>groupSelector</td>
                <td>selector</td>
-               <td>false</td>
-               <td>If selector then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior)</td>
+               <td>&gt; .accordion-group &gt; .in</td>
+               <td>Selector to use to collapse all elements under the specified parent (similar to traditional accordion behavior)</td>
              </tr>
              <tr>
-               <td>toggle</td>
-               <td>boolean</td>
-               <td>true</td>
-               <td>Toggles the collapsible element on invocation</td>
+               <td>duration</td>
+               <td>number</td>
+               <td>0.25</td>
+               <td>Seconds to animate the closing using transitions.</td>
+             </tr>
+            <tr>
+               <td>easing</td>
+               <td>String</td>
+               <td>ease-in</td>
+               <td>What type of easing to use for the transitions.</td>
              </tr>
             </tbody>
           </table>
@@ -1238,17 +1244,17 @@ $('#my-alert').bind('closed', function () {
             To add accordion-like group management to a collapsible control, add the data attribute <code>data-parent="#selector"</code>. Refer to the demo to see this in action.
           </div>
           <h3>Methods</h3>
-          <h4>.collapse(options)</h4>
-          <p>Activates your content as a collapsible element. Accepts an optional options <code>object</code>.
+          <h4>Plug it in!</h4>
+          <p>First, plug in the <code>Y.Bootstrap.Collapse</code> to the node. Accepts an optional options <code>object</code>.
 <pre class="prettyprint linenums">
-$('#myCollapsible').collapse({
-  toggle: false
+Y.one('#myCollapsible').plug( Y.Bootstrap.Collapse, {
+  duration: 1
 })</pre>
-          <h4>.collapse('toggle')</h4>
+          <h4>.collapse.toggle()</h4>
           <p>Toggles a collapsible element to shown or hidden.</p>
-          <h4>.collapse('show')</h4>
+          <h4>.collapse.show()</h4>
           <p>Shows a collapsible element.</p>
-          <h4>.collapse('hide')</h4>
+          <h4>.collapse.hide()</h4>
           <p>Hides a collapsible element.</p>
           <h3>Events</h3>
           <p>
@@ -1290,7 +1296,6 @@ $('#myCollapsible').on('hidden', function () {
         </div>
       </div>
     </section>
-
 
 
      <!-- Carousel
