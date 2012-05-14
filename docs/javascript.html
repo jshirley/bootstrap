@@ -79,7 +79,7 @@
       ================================================== -->
       <header class="jumbotron subhead" id="overview">
         <h1>Javascript for Bootstrap</h1>
-        <p class="lead">Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://yuilibrary.com/" target="_blank">YUI3</a>
+        <p class="lead">Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://yuilibrary.com/" target="_blank">YUI3</a> plugins.
         <div class="subnav">
           <ul class="nav nav-pills">
             <li><a href="#javascript">All plugins</a></li>
@@ -377,13 +377,13 @@ $('#myModal').on('hidden', function () {
     ================================================== -->
     <section id="dropdowns">
       <div class="page-header">
-        <h1>Dropdowns <small>bootstrap-dropdown.js</small></h1>
+        <h1>Dropdowns <small>.plug( Y.Bootstrap.Dropdown )</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About dropdowns</h3>
           <p>Add dropdown menus to nearly anything in Bootstrap with this simple plugin. Bootstrap features full dropdown menu support on in the navbar, tabs, and pills.</p>
-          <a href="assets/js/bootstrap-dropdown.js" target="_blank" class="btn">Download file</a>
+          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-dropdown.js" target="_blank" class="btn">Download file</a>
         </div>
         <div class="span9 columns">
           <h2>Examples</h2>
@@ -466,9 +466,9 @@ $('#myModal').on('hidden', function () {
 
           <hr>
 
-          <h2>Using bootstrap-dropdown.js</h2>
+          <h2>Using Y.Bootstrap.Dropdown</h2>
           <p>Call the dropdowns via javascript:</p>
-          <pre class="prettyprint linenums">$('.dropdown-toggle').dropdown()</pre>
+          <pre class="prettyprint linenums">Y.one('.dropdown-toggle').plug( Y.Bootstrap.Dropdown )</pre>
           <h3>Markup</h3>
           <p>To quickly add dropdown functionality to any element just add <code>data-toggle="dropdown"</code> and any valid bootstrap dropdown will automatically be activated.</p>
           <div class="alert alert-info">
@@ -508,8 +508,13 @@ $('#myModal').on('hidden', function () {
 &lt;/ul&gt;
 </pre>
           <h3>Methods</h3>
-          <h4>$().dropdown()</h4>
-          <p>A programatic api for activating menus for a given navbar or tabbed navigation.</p>
+          <p>After the node has the <code>Y.Bootstrap.Dropdown</code> plugin instantiated, the following methods are available:</p>
+          <h4>Y.one('.selector').dropdown.open()</h4>
+          <p>The <code>open</code> method will close the dropdown.</p>
+          <h4>Y.one('.selector').dropdown.close()</h4>
+          <p>The <code>close</code> method will close the dropdown.</p>
+          <h4>Y.one('.selector').dropdown.toggle()</h4>
+          <p>The <code>toggle</code> method inverses the state, if it's open it will close. Easy.</p>
         </div>
       </div>
     </section>
@@ -647,18 +652,19 @@ $('[data-spy="scroll"]').each(function () {
         <div class="span9 columns">
           <h2>Example tabs</h2>
           <p>Click the tabs below to toggle between hidden panes, even via dropdown menus.</p>
-          <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-            <li><a href="#profile" data-toggle="tab">Profile</a></li>
+          <div id="myTab" data-toggle="tab">
+           <ul class="nav nav-tabs">
+            <li class="active"><a href="#home">Home</a></li>
+            <li><a href="#profile">Profile</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#dropdown1" data-toggle="tab">@fat</a></li>
-                <li><a href="#dropdown2" data-toggle="tab">@mdo</a></li>
+                <li><a href="#dropdown1">@fat</a></li>
+                <li><a href="#dropdown2">@mdo</a></li>
               </ul>
             </li>
-          </ul>
-          <div id="myTabContent" class="tab-content">
+           </ul>
+           <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="home">
               <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
             </div>
@@ -671,81 +677,45 @@ $('[data-spy="scroll"]').each(function () {
             <div class="tab-pane fade" id="dropdown2">
               <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
             </div>
+           </div>
           </div>
           <hr>
-          <h2>Using bootstrap-tab.js</h2>
-          <p>Enable tabbable tabs via javascript (each tab needs to be activated individually):</p>
+          <h2>Using Y.Bootstrap.Tabview</h2>
+          <p>Create a new object and pass the source node in:</p>
           <pre class="prettyprint linenums">
-$('#myTab a').click(function (e) {
-  e.preventDefault();
-  $(this).tab('show');
-})</pre>
-          <p>You can activate individual tabs in several ways:</p>
+new Y.Bootstrap.Tabview({ node: '#myTab' });
+</pre>
+          <p>It is recommended to read the <a href="http://yuilibrary.com/yui/docs/tabview/">Y.TabView User Guide</a>, which is what control is under the covers.</p>
 <pre class="prettyprint linenums">
-$('#myTab a[href="#profile"]').tab('show'); // Select tab by name
-$('#myTab a:first').tab('show'); // Select first tab
-$('#myTab a:last').tab('show'); // Select last tab
-$('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)
+var tabview = new Y.Bootstrap.Tabview({ node: '#myTab' });
+
+tabview.selectChild(2); // Select the second tab
 </pre>
           <h3>Markup</h3>
           <p>You can activate a tab or pill navigation without writing any javascript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element. Adding the <code>nav</code> and <code>nav-tabs</code> classes to the tab <code>ul</code> will apply the bootstrap tab styling.</p>
+          <div class="alert alert-warning">
+            <strong>Heads up!</strong>
+            This behavior is different and is <strong>not a direct, drop-in replacement</strong> from the jQuery version. The markup is different!
+          </div>
+          <p>You can activate a tab or pill navigation without writing any javascript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element. Adding the <code>nav</code> and <code>nav-tabs</code> classes to the tab <em>container</em> <code>&lt;div class="nav-tabs"&gt;</code>.</p>
 <pre class="prettyprint linenums">
-&lt;ul class="nav nav-tabs"&gt;
-  &lt;li&gt;&lt;a href="#home" data-toggle="tab"&gt;Home&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#profile" data-toggle="tab"&gt;Profile&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#messages" data-toggle="tab"&gt;Messages&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#settings" data-toggle="tab"&gt;Settings&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</pre>
-          <h3>Methods</h3>
-          <h4>$().tab</h4>
-          <p>
-            Activates a tab element and content container. Tab should have either a <code>data-target</code> or an <code>href</code> targeting a container node in the DOM.
-          </p>
-<pre class="prettyprint linenums">
-&lt;ul class="nav nav-tabs" id="myTab"&gt;
-  &lt;li class="active"&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+&lt;div data-toggle="tab"&gt;
+ &lt;ul class="nav nav-tabs" data-toggle="tab"&gt;
+  &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="#profile"&gt;Profile&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="#messages"&gt;Messages&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="#settings"&gt;Settings&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class="tab-content"&gt;
-  &lt;div class="tab-pane active" id="home"&gt;...&lt;/div&gt;
-  &lt;div class="tab-pane" id="profile"&gt;...&lt;/div&gt;
-  &lt;div class="tab-pane" id="messages"&gt;...&lt;/div&gt;
-  &lt;div class="tab-pane" id="settings"&gt;...&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
-  $(function () {
-    $('#myTab a:last').tab('show');
-  })
-&lt;/script&gt;</pre>
-          <h3>Events</h3>
-          <table class="table table-bordered table-striped">
-            <thead>
-             <tr>
-               <th style="width: 150px;">Event</th>
-               <th>Description</th>
-             </tr>
-            </thead>
-            <tbody>
-             <tr>
-               <td>show</td>
-               <td>This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
-            </tr>
-            <tr>
-               <td>shown</td>
-               <td>This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
-             </tr>
-            </tbody>
-          </table>
-
-          <pre class="prettyprint linenums">
-$('a[data-toggle="tab"]').on('shown', function (e) {
-  e.target // activated tab
-  e.relatedTarget // previous tab
-})</pre>
+ &lt;/ul&gt;
+&lt;/div&gt;</pre>
+          <h3>Why is this different?</h3>
+          <h4>Aria Support</h4>
+          <p>
+            <a href="http://www.w3.org/WAI/intro/aria">Aria</a> is part of the Web Accessibility Initiative. It allows dynamic and rich client experiences to be made available to people with disabilities. It's important to not limit an experience for any users, unless they are on IE. Then they deserve it.
+          </p>
+          <h4>Amazing Support &amp; Documentation</h4>
+          <p>
+            The Y.TabView control is <a href="http://yuilibrary.com/yui/docs/api/classes/TabView.html">well documented</a> and very featureful. The IRC channel (irc.freenode.org, #yui), plus the <a href="http://yuilibrary.com/forum/">forums</a> are excellent.
+          </p>
        </div>
       </div>
     </section>
@@ -1259,6 +1229,7 @@ Y.one('#myCollapsible').plug( Y.Bootstrap.Collapse, {
           <h3>Events</h3>
           <p>
             Bootstrap's collapse class exposes a few events for hooking into collapse functionality.
+            Events are not on the node, they are on the <em>plugin</em> accessor. This prevents collisions between multiple plugins.
           </p>
           <table class="table table-bordered table-striped">
             <thead>
@@ -1290,7 +1261,7 @@ Y.one('#myCollapsible').plug( Y.Bootstrap.Collapse, {
           </table>
 
 <pre class="prettyprint linenums">
-$('#myCollapsible').on('hidden', function () {
+$('#myCollapsible').collapse.on('hidden', function () {
   // do something…
 })</pre>
         </div>

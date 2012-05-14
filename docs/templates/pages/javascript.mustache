@@ -2,7 +2,7 @@
       ================================================== -->
       <header class="jumbotron subhead" id="overview">
         <h1>{{_i}}Javascript for Bootstrap{{/i}}</h1>
-        <p class="lead">{{_i}}Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://yuilibrary.com/" target="_blank">YUI3</a>{{/i}}
+        <p class="lead">{{_i}}Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://yuilibrary.com/" target="_blank">YUI3</a> plugins.{{/i}}
         <div class="subnav">
           <ul class="nav nav-pills">
             <li><a href="#javascript">{{_i}}All plugins{{/i}}</a></li>
@@ -300,13 +300,13 @@ $('#myModal').on('hidden', function () {
     ================================================== -->
     <section id="dropdowns">
       <div class="page-header">
-        <h1>{{_i}}Dropdowns{{/i}} <small>bootstrap-dropdown.js</small></h1>
+        <h1>{{_i}}Dropdowns{{/i}} <small>.plug( Y.Bootstrap.Dropdown )</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>{{_i}}About dropdowns{{/i}}</h3>
           <p>{{_i}}Add dropdown menus to nearly anything in Bootstrap with this simple plugin. Bootstrap features full dropdown menu support on in the navbar, tabs, and pills.{{/i}}</p>
-          <a href="assets/js/bootstrap-dropdown.js" target="_blank" class="btn">{{_i}}Download file{{/i}}</a>
+          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-dropdown.js" target="_blank" class="btn">{{_i}}Download file{{/i}}</a>
         </div>
         <div class="span9 columns">
           <h2>{{_i}}Examples{{/i}}</h2>
@@ -389,9 +389,9 @@ $('#myModal').on('hidden', function () {
 
           <hr>
 
-          <h2>{{_i}}Using{{/i}} bootstrap-dropdown.js</h2>
+          <h2>{{_i}}Using{{/i}} Y.Bootstrap.Dropdown</h2>
           <p>{{_i}}Call the dropdowns via javascript:{{/i}}</p>
-          <pre class="prettyprint linenums">$('.dropdown-toggle').dropdown()</pre>
+          <pre class="prettyprint linenums">Y.one('.dropdown-toggle').plug( Y.Bootstrap.Dropdown )</pre>
           <h3>{{_i}}Markup{{/i}}</h3>
           <p>{{_i}}To quickly add dropdown functionality to any element just add <code>data-toggle="dropdown"</code> and any valid bootstrap dropdown will automatically be activated.{{/i}}</p>
           <div class="alert alert-info">
@@ -431,8 +431,13 @@ $('#myModal').on('hidden', function () {
 &lt;/ul&gt;
 </pre>
           <h3>{{_i}}Methods{{/i}}</h3>
-          <h4>$().dropdown()</h4>
-          <p>{{_i}}A programatic api for activating menus for a given navbar or tabbed navigation.{{/i}}</p>
+          <p>{{_i}}After the node has the <code>Y.Bootstrap.Dropdown</code> plugin instantiated, the following methods are available:{{/i}}</p>
+          <h4>Y.one('.selector').dropdown.open()</h4>
+          <p>{{_i}}The <code>open</code> method will close the dropdown.{{/i}}</p>
+          <h4>Y.one('.selector').dropdown.close()</h4>
+          <p>{{_i}}The <code>close</code> method will close the dropdown.{{/i}}</p>
+          <h4>Y.one('.selector').dropdown.toggle()</h4>
+          <p>{{_i}}The <code>toggle</code> method inverses the state, if it's open it will close. Easy.{{/i}}</p>
         </div>
       </div>
     </section>
@@ -570,18 +575,19 @@ $('[data-spy="scroll"]').each(function () {
         <div class="span9 columns">
           <h2>{{_i}}Example tabs{{/i}}</h2>
           <p>{{_i}}Click the tabs below to toggle between hidden panes, even via dropdown menus.{{/i}}</p>
-          <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="#home" data-toggle="tab">{{_i}}Home{{/i}}</a></li>
-            <li><a href="#profile" data-toggle="tab">{{_i}}Profile{{/i}}</a></li>
+          <div id="myTab" data-toggle="tab">
+           <ul class="nav nav-tabs">
+            <li class="active"><a href="#home">{{_i}}Home{{/i}}</a></li>
+            <li><a href="#profile">{{_i}}Profile{{/i}}</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{_i}}Dropdown{{/i}} <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#dropdown1" data-toggle="tab">@fat</a></li>
-                <li><a href="#dropdown2" data-toggle="tab">@mdo</a></li>
+                <li><a href="#dropdown1">@fat</a></li>
+                <li><a href="#dropdown2">@mdo</a></li>
               </ul>
             </li>
-          </ul>
-          <div id="myTabContent" class="tab-content">
+           </ul>
+           <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="home">
               <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
             </div>
@@ -594,81 +600,45 @@ $('[data-spy="scroll"]').each(function () {
             <div class="tab-pane fade" id="dropdown2">
               <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
             </div>
+           </div>
           </div>
           <hr>
-          <h2>{{_i}}Using bootstrap-tab.js{{/i}}</h2>
-          <p>{{_i}}Enable tabbable tabs via javascript (each tab needs to be activated individually):{{/i}}</p>
+          <h2>{{_i}}Using Y.Bootstrap.Tabview{{/i}}</h2>
+          <p>{{_i}}Create a new object and pass the source node in:{{/i}}</p>
           <pre class="prettyprint linenums">
-$('#myTab a').click(function (e) {
-  e.preventDefault();
-  $(this).tab('show');
-})</pre>
-          <p>{{_i}}You can activate individual tabs in several ways:{{/i}}</p>
+new Y.Bootstrap.Tabview({ node: '#myTab' });
+</pre>
+          <p>{{_i}}It is recommended to read the <a href="http://yuilibrary.com/yui/docs/tabview/">Y.TabView User Guide</a>, which is what control is under the covers.{{/i}}</p>
 <pre class="prettyprint linenums">
-$('#myTab a[href="#profile"]').tab('show'); // Select tab by name
-$('#myTab a:first').tab('show'); // Select first tab
-$('#myTab a:last').tab('show'); // Select last tab
-$('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)
+var tabview = new Y.Bootstrap.Tabview({ node: '#myTab' });
+
+tabview.selectChild(2); // Select the second tab
 </pre>
           <h3>{{_i}}Markup{{/i}}</h3>
           <p>{{_i}}You can activate a tab or pill navigation without writing any javascript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element. Adding the <code>nav</code> and <code>nav-tabs</code> classes to the tab <code>ul</code> will apply the bootstrap tab styling.{{/i}}</p>
+          <div class="alert alert-warning">
+            <strong>{{_i}}Heads up!{{/i}}</strong>
+            {{_i}}This behavior is different and is <strong>not a direct, drop-in replacement</strong> from the jQuery version. The markup is different!{{/i}}
+          </div>
+          <p>{{_i}}You can activate a tab or pill navigation without writing any javascript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element. Adding the <code>nav</code> and <code>nav-tabs</code> classes to the tab <em>container</em> <code>&lt;div class="nav-tabs"&gt;</code>.{{/i}}</p>
 <pre class="prettyprint linenums">
-&lt;ul class="nav nav-tabs"&gt;
-  &lt;li&gt;&lt;a href="#home" data-toggle="tab"&gt;{{_i}}Home{{/i}}&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#profile" data-toggle="tab"&gt;{{_i}}Profile{{/i}}&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#messages" data-toggle="tab"&gt;{{_i}}Messages{{/i}}&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#settings" data-toggle="tab"&gt;{{_i}}Settings{{/i}}&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</pre>
-          <h3>{{_i}}Methods{{/i}}</h3>
-          <h4>$().tab</h4>
-          <p>
-            {{_i}}Activates a tab element and content container. Tab should have either a <code>data-target</code> or an <code>href</code> targeting a container node in the DOM.{{/i}}
-          </p>
-<pre class="prettyprint linenums">
-&lt;ul class="nav nav-tabs" id="myTab"&gt;
-  &lt;li class="active"&gt;&lt;a href="#home"&gt;{{_i}}Home{{/i}}&lt;/a&gt;&lt;/li&gt;
+&lt;div data-toggle="tab"&gt;
+ &lt;ul class="nav nav-tabs" data-toggle="tab"&gt;
+  &lt;li&gt;&lt;a href="#home"&gt;{{_i}}Home{{/i}}&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="#profile"&gt;{{_i}}Profile{{/i}}&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="#messages"&gt;{{_i}}Messages{{/i}}&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="#settings"&gt;{{_i}}Settings{{/i}}&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class="tab-content"&gt;
-  &lt;div class="tab-pane active" id="home"&gt;...&lt;/div&gt;
-  &lt;div class="tab-pane" id="profile"&gt;...&lt;/div&gt;
-  &lt;div class="tab-pane" id="messages"&gt;...&lt;/div&gt;
-  &lt;div class="tab-pane" id="settings"&gt;...&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
-  $(function () {
-    $('#myTab a:last').tab('show');
-  })
-&lt;/script&gt;</pre>
-          <h3>{{_i}}Events{{/i}}</h3>
-          <table class="table table-bordered table-striped">
-            <thead>
-             <tr>
-               <th style="width: 150px;">{{_i}}Event{{/i}}</th>
-               <th>{{_i}}Description{{/i}}</th>
-             </tr>
-            </thead>
-            <tbody>
-             <tr>
-               <td>{{_i}}show{{/i}}</td>
-               <td>{{_i}}This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.{{/i}}</td>
-            </tr>
-            <tr>
-               <td>{{_i}}shown{{/i}}</td>
-               <td>{{_i}}This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.{{/i}}</td>
-             </tr>
-            </tbody>
-          </table>
-
-          <pre class="prettyprint linenums">
-$('a[data-toggle="tab"]').on('shown', function (e) {
-  e.target // activated tab
-  e.relatedTarget // previous tab
-})</pre>
+ &lt;/ul&gt;
+&lt;/div&gt;</pre>
+          <h3>{{_i}}Why is this different?{{/i}}</h3>
+          <h4>{{_i}}Aria Support{{/i}}</h4>
+          <p>
+            {{_i}}<a href="http://www.w3.org/WAI/intro/aria">Aria</a> is part of the Web Accessibility Initiative. It allows dynamic and rich client experiences to be made available to people with disabilities. It's important to not limit an experience for any users, unless they are on IE. Then they deserve it.{{/i}}
+          </p>
+          <h4>{{_i}}Amazing Support &amp; Documentation{{/i}}</h4>
+          <p>
+            {{_i}}The Y.TabView control is <a href="http://yuilibrary.com/yui/docs/api/classes/TabView.html">well documented</a> and very featureful. The IRC channel (irc.freenode.org, #yui), plus the <a href="http://yuilibrary.com/forum/">forums</a> are excellent.{{/i}}
+          </p>
        </div>
       </div>
     </section>
@@ -1182,6 +1152,7 @@ Y.one('#myCollapsible').plug( Y.Bootstrap.Collapse, {
           <h3>{{_i}}Events{{/i}}</h3>
           <p>
             {{_i}}Bootstrap's collapse class exposes a few events for hooking into collapse functionality.{{/i}}
+            {{_i}}Events are not on the node, they are on the <em>plugin</em> accessor. This prevents collisions between multiple plugins.{{/i}}
           </p>
           <table class="table table-bordered table-striped">
             <thead>
@@ -1213,7 +1184,7 @@ Y.one('#myCollapsible').plug( Y.Bootstrap.Collapse, {
           </table>
 
 <pre class="prettyprint linenums">
-$('#myCollapsible').on('hidden', function () {
+$('#myCollapsible').collapse.on('hidden', function () {
   // {{_i}}do something…{{/i}}
 })</pre>
         </div>
