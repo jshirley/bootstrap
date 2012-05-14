@@ -2,7 +2,7 @@
       ================================================== -->
       <header class="jumbotron subhead" id="overview">
         <h1>{{_i}}Javascript for Bootstrap{{/i}}</h1>
-        <p class="lead">{{_i}}Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://jquery.com/" target="_blank">jQuery</a> plugins.{{/i}}
+        <p class="lead">{{_i}}Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://yuilibrary.com/" target="_blank">YUI3</a>{{/i}}
         <div class="subnav">
           <ul class="nav nav-pills">
             <li><a href="#javascript">{{_i}}All plugins{{/i}}</a></li>
@@ -26,7 +26,7 @@
       ================================================== -->
       <section id="javascript">
         <div class="page-header">
-          <h1>{{_i}}jQuery plugins{{/i}} <small>{{_i}}A dozen Bootstrap plugins to get you started{{/i}}</small></h1>
+          <h1>{{_i}}YUI3 plugins{{/i}} <small>{{_i}}A dozen Bootstrap plugins to get you started{{/i}}</small></h1>
         </div>
       <div class="row">
         <div class="span3">
@@ -58,7 +58,7 @@
         <div class="span3">
           <label>
             <h3><a href="./javascript.html#tooltips">{{_i}}Tooltips{{/i}}</a></h3>
-            <p>{{_i}}A new take on the jQuery Tipsy plugin, Tooltips don't rely on images&mdash;they use CSS3 for animations and data-attributes for local title storage.{{/i}}</p>
+            <p>{{_i}}A new take on the jQuery Tipsy plugin, because it's now in YUI3! These Tooltips don't rely on images&mdash;they use CSS3 for animations and data-attributes for local title storage.{{/i}}</p>
           </label>
         </div>
         <div class="span3">
@@ -108,7 +108,7 @@
           </label>
         </div>
       </div> <!-- /row -->
-      <div class="alert alert-info"><strong>{{_i}}Heads up!{{/i}}</strong> {{_i}}All javascript plugins require the latest version of jQuery.{{/i}}</div>
+      <div class="alert alert-info"><strong>{{_i}}Heads up!{{/i}}</strong> {{_i}}All this is available from the <a href="http://yuilibrary.com/yui/quick-start/">YUI3 CDN</a>. You don't need to host or include any JavaScript on your site!{{/i}}</div>
     </section>
 
 
@@ -1354,25 +1354,33 @@ $('.carousel').carousel({
     ================================================== -->
     <section id="typeahead">
       <div class="page-header">
-        <h1>{{_i}}Typeahead{{/i}} <small>bootstrap-typeahead.js</small></h1>
+        <h1>{{_i}}Typeahead{{/i}} <small>.plug( Y.Bootstrap.Tooltip )</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>{{_i}}About{{/i}}</h3>
           <p>{{_i}}A basic, easily extended plugin for quickly creating elegant typeaheads with any form text input.{{/i}}</p>
-          <a href="assets/js/bootstrap-typeahead.js" target="_blank" class="btn">{{_i}}Download file{{/i}}</a>
+          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-typeahead.js" target="_blank" class="btn">{{_i}}View Source{{/i}}</a>
         </div>
         <div class="span9 columns">
-          <h2>{{_i}}Example{{/i}}</h2>
-          <p>{{_i}}Start typing in the field below to show the typeahead results.{{/i}}</p>
+          <h2>{{_i}}Example with Local Data{{/i}}</h2>
+          <p>{{_i}}Start typing a US state (like California) in the field below to show the typeahead results.{{/i}}</p>
           <div class="well">
             <input type="text" class="span3" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
           </div>
           <hr>
-          <h2>{{_i}}Using bootstrap-typeahead.js{{/i}}</h2>
+          <h2>{{_i}}Example with YQL{{/i}}</h2>
+          <p>{{_i}}Start typing something and a YQL query will be issued, all configured through the data-source attribute (and using data-locator).{{/i}}</p>
+          <div class="well">
+            <input type="text" class="span3" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source='select * from local.search where zip="94085" and query="{query}"' data-text-locator="Title" data-list-locator="query.results.Result">
+          </div>
+          <hr>
+
+          <h2>{{_i}}Using Y.Bootstrap.Typeahead{{/i}}</h2>
           <p>{{_i}}Call the typeahead via javascript:{{/i}}</p>
-          <pre class="prettyprint linenums">$('.typeahead').typeahead()</pre>
+          <pre class="prettyprint linenums">Y.one('.typeahead').plug( Y.Bootstrap.Typeahead, { source : [ 'a', 'b', 'c' ] } )</pre>
           <h3>{{_i}}Options{{/i}}</h3>
+          <p>{{_i}}Any option passed in will be sent to Y.AutoComplete, with some sensible defaults to attempt to closely match default Bootstrap behavior. Look at <a href="http://yuilibrary.com/yui/docs/autocomplete/#configuring-autocomplete">the configuration guide</a> for all options available to you.{{/i}}</p>
           <table class="table table-bordered table-striped">
             <thead>
              <tr>
@@ -1385,33 +1393,27 @@ $('.carousel').carousel({
             <tbody>
               <tr>
                <td>{{_i}}source{{/i}}</td>
-               <td>{{_i}}array{{/i}}</td>
+               <td>{{_i}}String|Array{{/i}}</td>
                <td>[ ]</td>
                <td>{{_i}}The data source to query against.{{/i}}</td>
              </tr>
              <tr>
-               <td>{{_i}}items{{/i}}</td>
-               <td>{{_i}}number{{/i}}</td>
+               <td>{{_i}}maxResults{{/i}}</td>
+               <td>{{_i}}Integer{{/i}}</td>
                <td>8</td>
                <td>{{_i}}The max number of items to display in the dropdown.{{/i}}</td>
              </tr>
              <tr>
-               <td>{{_i}}matcher{{/i}}</td>
-               <td>{{_i}}function{{/i}}</td>
-               <td>{{_i}}case insensitive{{/i}}</td>
-               <td>{{_i}}The method used to determine if a query matches an item. Accepts a single argument, the <code>item</code> against which to test the query. Access the current query with <code>this.query</code>. Return a boolean <code>true</code> if query is a match.{{/i}}</td>
+               <td>{{_i}}resultFilters{{/i}}</td>
+               <td>{{_i}}String|Function{{/i}}</td>
+               <td>{{_i}}phraseMatch, case insensitive{{/i}}</td>
+               <td>{{_i}}The method used to determine if a query matches an item. See <a href="http://yuilibrary.com/yui/docs/autocomplete/ac-local.html">the Basic Local Data</a> example.{{/i}}</td>
              </tr>
              <tr>
-               <td>{{_i}}sorter{{/i}}</td>
-               <td>{{_i}}function{{/i}}</td>
-               <td>{{_i}}exact match,<br> case sensitive,<br> case insensitive{{/i}}</td>
-               <td>{{_i}}Method used to sort autocomplete results. Accepts a single argument <code>items</code> and has the scope of the typeahead instance. Reference the current query with <code>this.query</code>.{{/i}}</td>
-             </tr>
-             <tr>
-               <td>{{_i}}highlighter{{/i}}</td>
-               <td>{{_i}}function{{/i}}</td>
-               <td>{{_i}}highlights all default matches{{/i}}</td>
-               <td>{{_i}}Method used to highlight autocomplete results. Accepts a single argument <code>item</code> and has the scope of the typeahead instance. Should return html.{{/i}}</td>
+               <td>{{_i}}resultHighlighter{{/i}}</td>
+               <td>{{_i}}String|Function{{/i}}</td>
+               <td>{{_i}}phraseMatch, highlight matches{{/i}}</td>
+               <td>{{_i}}See <a href="http://yuilibrary.com/yui/docs/autocomplete/#writing-result-highlighters">the guide</a> for how to write your own highlighter. The default highlighter shows the text matching.{{/i}}</td>
              </tr>
             </tbody>
           </table>
@@ -1421,9 +1423,14 @@ $('.carousel').carousel({
 <pre class="prettyprint linenums">
 &lt;input type="text" data-provide="typeahead"&gt;
 </pre>
-          <h3>{{_i}}Methods{{/i}}</h3>
-          <h4>.typeahead({{_i}}options{{/i}})</h4>
-          <p>{{_i}}Initializes an input with a typeahead.{{/i}}</p>
+          <p>{{_i}}A very full featured typeahead control can be created with <strong>no javascript</strong>.{{/i}}</p>
+<pre class="prettyprint linenums">
+&lt;input type="text" data-provide="typeahead"
+    data-source='select * from local.search where zip="94085" and query="{query}"'
+    data-text-locator="Title" &lt;!-- What part of the resulting structure contains the displayable item? --&gt;
+    data-list-locator="query.results.Result" &lt;-- In the results, where's the needle? --&gt;
+&gt;
+</pre>
         </div>
       </div>
     </section>
