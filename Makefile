@@ -79,8 +79,16 @@ gh-pages: bootstrap docs
 	zip -r docs/assets/bootstrap.zip bootstrap
 	rm -r bootstrap
 	rm -f ../bootstrap-gh-pages/assets/bootstrap.zip
-	node docs/build production
+	node docs/build
 	cp -r docs/* ../bootstrap-gh-pages
+
+staging-pages: bootstrap docs
+	rm -f docs/assets/bootstrap.zip
+	zip -r docs/assets/bootstrap.zip bootstrap
+	rm -r bootstrap
+	rm -f ../bootstrap-gh-pages/assets/bootstrap.zip
+	node docs/build
+	cp -r docs/* ../bootstrap-gh-pages-jshirley
 
 #
 # WATCH LESS FILES

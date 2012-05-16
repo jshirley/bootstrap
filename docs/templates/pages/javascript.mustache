@@ -27,7 +27,14 @@
       <section id="javascript">
         <div class="page-header">
           <h1>{{_i}}YUI3 plugins{{/i}} <small>{{_i}}A dozen Bootstrap plugins to get you started{{/i}}</small></h1>
-        </div>
+          <hr>
+          <p>{{_i}}YUI3 is a fantastic, robust and stable JavaScript library. It delivers combo loading, code hosting, app frameworks, accessibility through ARIA and many other features <em>for free</em>. Just remove that crufty jQuery and switch easily to the YUI3 port.{{/i}}</p>
+<pre class="prettyprint linenums">
+&lt;script type="text/javascript" src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+  YUI().use('gallery-bootstrap');
+&lt;/script&gt;</pre>
+       </div>
       <div class="row">
         <div class="span3">
           <label>
@@ -117,13 +124,13 @@
     ================================================== -->
     <section id="modals">
       <div class="page-header">
-        <h1>{{_i}}Modals{{/i}} <small>bootstrap-modal.js</small></h1>
+        <h1>{{_i}}Modals{{/i}} <small>.plug( Y.Bootstrap.Modal )</small><span class="label label-important">Work In Progress</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>{{_i}}About modals{{/i}}</h3>
           <p>{{_i}}A streamlined, but flexible, take on the traditional javascript modal plugin with only the minimum required functionality and smart defaults.{{/i}}</p>
-          <a href="assets/js/bootstrap-modal.js" target="_blank" class="btn">{{_i}}Download file{{/i}}</a>
+          <a href="#" target="_blank" class="btn">{{_i}}View Source{{/i}}</a>
         </div>
         <div class="span9 columns">
           <h2>{{_i}}Static example{{/i}}</h2>
@@ -145,7 +152,7 @@
           </div> <!-- /well -->
 
           <h2>{{_i}}Live demo{{/i}}</h2>
-          <p>{{_i}}Toggle a modal via javascript by clicking the button below. It will slide down and fade in from the top of the page.{{/i}}</p>
+          <p>{{_i}}Toggle a modal via javascript by clicking the button below. It will slide down and fade in from the top of the page <span class="label label-important">WIP: Sliding not complete</span>.{{/i}}</p>
           <!-- sample modal content -->
           <div id="myModal" class="modal hide fade">
             <div class="modal-header">
@@ -182,9 +189,9 @@
 
           <hr>
 
-          <h2>{{_i}}Using bootstrap-modal{{/i}}</h2>
+          <h2>{{_i}}Using Y.Bootstrap.Modal{{/i}}</h2>
           <p>{{_i}}Call the modal via javascript:{{/i}}</p>
-          <pre class="prettyprint linenums">$('#myModal').modal(options)</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').plug(Y.Bootstrap.Modal, options)</pre>
           <h3>{{_i}}Options{{/i}}</h3>
           <table class="table table-bordered table-striped">
             <thead>
@@ -245,18 +252,18 @@
           <h4>.modal({{_i}}options{{/i}})</h4>
           <p>{{_i}}Activates your content as a modal. Accepts an optional options <code>object</code>.{{/i}}</p>
 <pre class="prettyprint linenums">
-$('#myModal').modal({
+Y.one('#myModal').plug( Y.Bootstrap.Modal, {
   keyboard: false
-})</pre>
-          <h4>.modal('toggle')</h4>
+});</pre>
+          <h4>Y.one('#myModal').modal.toggle()</h4>
           <p>{{_i}}Manually toggles a modal.{{/i}}</p>
-          <pre class="prettyprint linenums">$('#myModal').modal('toggle')</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').modal.toggle();</pre>
           <h4>.modal('show')</h4>
           <p>{{_i}}Manually opens a modal.{{/i}}</p>
-          <pre class="prettyprint linenums">$('#myModal').modal('show')</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').modal.show();</pre>
           <h4>.modal('hide')</h4>
           <p>{{_i}}Manually hides a modal.{{/i}}</p>
-          <pre class="prettyprint linenums">$('#myModal').modal('hide')</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').modal.hide();</pre>
           <h3>{{_i}}Events{{/i}}</h3>
           <p>{{_i}}Bootstrap's modal class exposes a few events for hooking into modal functionality.{{/i}}</p>
           <table class="table table-bordered table-striped">
@@ -287,9 +294,9 @@ $('#myModal').modal({
           </table>
 
 <pre class="prettyprint linenums">
-$('#myModal').on('hidden', function () {
+Y.one('#myModal').modal.on('hidden', function () {
   // {{_i}}do something…{{/i}}
-})</pre>
+});</pre>
         </div>
       </div>
     </section>
@@ -565,7 +572,7 @@ $('[data-spy="scroll"]').each(function () {
     ================================================== -->
     <section id="tabs">
       <div class="page-header">
-        <h1>{{_i}}Togglable tabs{{/i}} <small>bootstrap-tab.js</small></h1>
+        <h1>{{_i}}Togglable tabs{{/i}} <small>Y.Bootstrap.TabView</small> <span class="label label-info">Modified</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -648,7 +655,7 @@ tabview.selectChild(2); // Select the second tab
     ================================================== -->
     <section id="tooltips">
       <div class="page-header">
-        <h1>{{_i}}Tooltips{{/i}} <small>bootstrap-tooltip.js</small></h1>
+        <h1>{{_i}}Tooltips{{/i}} <small>Y.Bootstrap.Tooltip</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -730,17 +737,17 @@ tabview.selectChild(2); // Select the second tab
 &lt;a href="#" rel="tooltip" title="{{_i}}first tooltip{{/i}}"&gt;{{_i}}hover over me{{/i}}&lt;/a&gt;
 </pre>
           <h3>{{_i}}Methods{{/i}}</h3>
-          <h4>$().tooltip({{_i}}options{{/i}})</h4>
-          <p>{{_i}}Attaches a tooltip handler to an element collection.{{/i}}</p>
-          <h4>.tooltip('show')</h4>
+          <h4>Y.one('.tooltip').plug( Y.Bootstrap.Tooltip, {{_i}}options{{/i}});</h4>
+          <p>{{_i}}Attaches a tooltip handler to an element collection. This can be a list or individual node.{{/i}}</p>
+          <h4>.tooltip.show()</h4>
           <p>{{_i}}Reveals an element's tooltip.{{/i}}</p>
-          <pre class="prettyprint linenums">$('#element').tooltip('show')</pre>
-          <h4>.tooltip('hide')</h4>
+          <pre class="prettyprint linenums">Y.one('#element').tooltip.show()</pre>
+          <h4>.tooltip.hide()</h4>
           <p>{{_i}}Hides an element's tooltip.{{/i}}</p>
-          <pre class="prettyprint linenums">$('#element').tooltip('hide')</pre>
-          <h4>.tooltip('toggle')</h4>
+          <pre class="prettyprint linenums">Y.one('#element').tooltip.hide()</pre>
+          <h4>.tooltip.toggle()</h4>
           <p>{{_i}}Toggles an element's tooltip.{{/i}}</p>
-          <pre class="prettyprint linenums">$('#element').tooltip('toggle')</pre>
+          <pre class="prettyprint linenums">Y.one('#element').tooltip.toggle()</pre>
         </div>
       </div>
     </section>
@@ -751,7 +758,7 @@ tabview.selectChild(2); // Select the second tab
     ================================================== -->
     <section id="popovers">
       <div class="page-header">
-        <h1>{{_i}}Popovers{{/i}} <small>bootstrap-popover.js</small></h1>
+        <h1>{{_i}}Popovers{{/i}} <small>bootstrap-popover.js</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -859,7 +866,7 @@ tabview.selectChild(2); // Select the second tab
     ================================================== -->
     <section id="alerts">
       <div class="page-header">
-        <h1>{{_i}}Alert messages{{/i}} <small>bootstrap-alert.js</small></h1>
+        <h1>{{_i}}Alert messages{{/i}} <small>Y.Bootstrap.Alert</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -885,16 +892,16 @@ tabview.selectChild(2); // Select the second tab
           <hr>
           <h2>{{_i}}Using bootstrap-alert.js{{/i}}</h2>
           <p>{{_i}}Enable dismissal of an alert via javascript:{{/i}}</p>
-          <pre class="prettyprint linenums">$(".alert").alert()</pre>
+          <pre class="prettyprint linenums">Y.one(".alert").plug( Y.Plugin.Alert, {{_i}}options{{/i}} )</pre>
           <h3>{{_i}}Markup{{/i}}</h3>
           <p>{{_i}}Just add <code>data-dismiss="alert"</code> to your close button to automatically give an alert close functionality.{{/i}}</p>
           <pre class="prettyprint linenums">&lt;a class="close" data-dismiss="alert" href="#"&gt;&amp;times;&lt;/a&gt;</pre>
           <h3>{{_i}}Methods{{/i}}</h3>
-          <h4>$().alert()</h4>
+          <h4>Y.one('#message').alert</h4>
           <p>{{_i}}Wraps all alerts with close functionality. To have your alerts animate out when closed, make sure they have the <code>.fade</code> and <code>.in</code> class already applied to them.{{/i}}</p>
-          <h4>.alert('close')</h4>
+          <h4>.alert.close()</h4>
           <p>{{_i}}Closes an alert.{{/i}}</p>
-          <pre class="prettyprint linenums">$(".alert").alert('close')</pre>
+          <pre class="prettyprint linenums">Y.one(".alert").alert.close()</pre>
           <h3>{{_i}}Events{{/i}}</h3>
           <p>{{_i}}Bootstrap's alert class exposes a few events for hooking into alert functionality.{{/i}}</p>
           <table class="table table-bordered table-striped">
@@ -916,7 +923,7 @@ tabview.selectChild(2); // Select the second tab
             </tbody>
           </table>
 <pre class="prettyprint linenums">
-$('#my-alert').bind('closed', function () {
+Y.one('#my-alert').on('closed', function () {
   // {{_i}}do something…{{/i}}
 })</pre>
         </div>
@@ -929,7 +936,7 @@ $('#my-alert').bind('closed', function () {
     ================================================== -->
     <section id="buttons">
       <div class="page-header">
-        <h1>{{_i}}Buttons{{/i}} <small>bootstrap-button.js</small></h1>
+        <h1>{{_i}}Buttons{{/i}} <small>bootstrap-button.js</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -1196,7 +1203,7 @@ $('#myCollapsible').collapse.on('hidden', function () {
     ================================================== -->
     <section id="carousel">
       <div class="page-header">
-        <h1>{{_i}}Carousel{{/i}} <small>bootstrap-carousel.js</small></h1>
+        <h1>{{_i}}Carousel{{/i}} <small>bootstrap-carousel.js</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">

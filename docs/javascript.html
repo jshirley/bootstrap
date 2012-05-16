@@ -104,7 +104,14 @@
       <section id="javascript">
         <div class="page-header">
           <h1>YUI3 plugins <small>A dozen Bootstrap plugins to get you started</small></h1>
-        </div>
+          <hr>
+          <p>YUI3 is a fantastic, robust and stable JavaScript library. It delivers combo loading, code hosting, app frameworks, accessibility through ARIA and many other features <em>for free</em>. Just remove that crufty jQuery and switch easily to the YUI3 port.</p>
+<pre class="prettyprint linenums">
+&lt;script type="text/javascript" src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+  YUI().use('gallery-bootstrap');
+&lt;/script&gt;</pre>
+       </div>
       <div class="row">
         <div class="span3">
           <label>
@@ -194,13 +201,13 @@
     ================================================== -->
     <section id="modals">
       <div class="page-header">
-        <h1>Modals <small>bootstrap-modal.js</small></h1>
+        <h1>Modals <small>.plug( Y.Bootstrap.Modal )</small><span class="label label-important">Work In Progress</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About modals</h3>
           <p>A streamlined, but flexible, take on the traditional javascript modal plugin with only the minimum required functionality and smart defaults.</p>
-          <a href="assets/js/bootstrap-modal.js" target="_blank" class="btn">Download file</a>
+          <a href="#" target="_blank" class="btn">View Source</a>
         </div>
         <div class="span9 columns">
           <h2>Static example</h2>
@@ -222,7 +229,7 @@
           </div> <!-- /well -->
 
           <h2>Live demo</h2>
-          <p>Toggle a modal via javascript by clicking the button below. It will slide down and fade in from the top of the page.</p>
+          <p>Toggle a modal via javascript by clicking the button below. It will slide down and fade in from the top of the page <span class="label label-important">WIP: Sliding not complete</span>.</p>
           <!-- sample modal content -->
           <div id="myModal" class="modal hide fade">
             <div class="modal-header">
@@ -259,9 +266,9 @@
 
           <hr>
 
-          <h2>Using bootstrap-modal</h2>
+          <h2>Using Y.Bootstrap.Modal</h2>
           <p>Call the modal via javascript:</p>
-          <pre class="prettyprint linenums">$('#myModal').modal(options)</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').plug(Y.Bootstrap.Modal, options)</pre>
           <h3>Options</h3>
           <table class="table table-bordered table-striped">
             <thead>
@@ -322,18 +329,18 @@
           <h4>.modal(options)</h4>
           <p>Activates your content as a modal. Accepts an optional options <code>object</code>.</p>
 <pre class="prettyprint linenums">
-$('#myModal').modal({
+Y.one('#myModal').plug( Y.Bootstrap.Modal, {
   keyboard: false
-})</pre>
-          <h4>.modal('toggle')</h4>
+});</pre>
+          <h4>Y.one('#myModal').modal.toggle()</h4>
           <p>Manually toggles a modal.</p>
-          <pre class="prettyprint linenums">$('#myModal').modal('toggle')</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').modal.toggle();</pre>
           <h4>.modal('show')</h4>
           <p>Manually opens a modal.</p>
-          <pre class="prettyprint linenums">$('#myModal').modal('show')</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').modal.show();</pre>
           <h4>.modal('hide')</h4>
           <p>Manually hides a modal.</p>
-          <pre class="prettyprint linenums">$('#myModal').modal('hide')</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').modal.hide();</pre>
           <h3>Events</h3>
           <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
           <table class="table table-bordered table-striped">
@@ -364,9 +371,9 @@ $('#myModal').modal({
           </table>
 
 <pre class="prettyprint linenums">
-$('#myModal').on('hidden', function () {
+Y.one('#myModal').modal.on('hidden', function () {
   // do something…
-})</pre>
+});</pre>
         </div>
       </div>
     </section>
@@ -642,7 +649,7 @@ $('[data-spy="scroll"]').each(function () {
     ================================================== -->
     <section id="tabs">
       <div class="page-header">
-        <h1>Togglable tabs <small>bootstrap-tab.js</small></h1>
+        <h1>Togglable tabs <small>Y.Bootstrap.TabView</small> <span class="label label-info">Modified</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -725,7 +732,7 @@ tabview.selectChild(2); // Select the second tab
     ================================================== -->
     <section id="tooltips">
       <div class="page-header">
-        <h1>Tooltips <small>bootstrap-tooltip.js</small></h1>
+        <h1>Tooltips <small>Y.Bootstrap.Tooltip</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -807,17 +814,17 @@ tabview.selectChild(2); // Select the second tab
 &lt;a href="#" rel="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;
 </pre>
           <h3>Methods</h3>
-          <h4>$().tooltip(options)</h4>
-          <p>Attaches a tooltip handler to an element collection.</p>
-          <h4>.tooltip('show')</h4>
+          <h4>Y.one('.tooltip').plug( Y.Bootstrap.Tooltip, options);</h4>
+          <p>Attaches a tooltip handler to an element collection. This can be a list or individual node.</p>
+          <h4>.tooltip.show()</h4>
           <p>Reveals an element's tooltip.</p>
-          <pre class="prettyprint linenums">$('#element').tooltip('show')</pre>
-          <h4>.tooltip('hide')</h4>
+          <pre class="prettyprint linenums">Y.one('#element').tooltip.show()</pre>
+          <h4>.tooltip.hide()</h4>
           <p>Hides an element's tooltip.</p>
-          <pre class="prettyprint linenums">$('#element').tooltip('hide')</pre>
-          <h4>.tooltip('toggle')</h4>
+          <pre class="prettyprint linenums">Y.one('#element').tooltip.hide()</pre>
+          <h4>.tooltip.toggle()</h4>
           <p>Toggles an element's tooltip.</p>
-          <pre class="prettyprint linenums">$('#element').tooltip('toggle')</pre>
+          <pre class="prettyprint linenums">Y.one('#element').tooltip.toggle()</pre>
         </div>
       </div>
     </section>
@@ -828,7 +835,7 @@ tabview.selectChild(2); // Select the second tab
     ================================================== -->
     <section id="popovers">
       <div class="page-header">
-        <h1>Popovers <small>bootstrap-popover.js</small></h1>
+        <h1>Popovers <small>bootstrap-popover.js</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -936,7 +943,7 @@ tabview.selectChild(2); // Select the second tab
     ================================================== -->
     <section id="alerts">
       <div class="page-header">
-        <h1>Alert messages <small>bootstrap-alert.js</small></h1>
+        <h1>Alert messages <small>Y.Bootstrap.Alert</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -962,16 +969,16 @@ tabview.selectChild(2); // Select the second tab
           <hr>
           <h2>Using bootstrap-alert.js</h2>
           <p>Enable dismissal of an alert via javascript:</p>
-          <pre class="prettyprint linenums">$(".alert").alert()</pre>
+          <pre class="prettyprint linenums">Y.one(".alert").plug( Y.Plugin.Alert, options )</pre>
           <h3>Markup</h3>
           <p>Just add <code>data-dismiss="alert"</code> to your close button to automatically give an alert close functionality.</p>
           <pre class="prettyprint linenums">&lt;a class="close" data-dismiss="alert" href="#"&gt;&amp;times;&lt;/a&gt;</pre>
           <h3>Methods</h3>
-          <h4>$().alert()</h4>
+          <h4>Y.one('#message').alert</h4>
           <p>Wraps all alerts with close functionality. To have your alerts animate out when closed, make sure they have the <code>.fade</code> and <code>.in</code> class already applied to them.</p>
-          <h4>.alert('close')</h4>
+          <h4>.alert.close()</h4>
           <p>Closes an alert.</p>
-          <pre class="prettyprint linenums">$(".alert").alert('close')</pre>
+          <pre class="prettyprint linenums">Y.one(".alert").alert.close()</pre>
           <h3>Events</h3>
           <p>Bootstrap's alert class exposes a few events for hooking into alert functionality.</p>
           <table class="table table-bordered table-striped">
@@ -993,7 +1000,7 @@ tabview.selectChild(2); // Select the second tab
             </tbody>
           </table>
 <pre class="prettyprint linenums">
-$('#my-alert').bind('closed', function () {
+Y.one('#my-alert').on('closed', function () {
   // do something…
 })</pre>
         </div>
@@ -1006,7 +1013,7 @@ $('#my-alert').bind('closed', function () {
     ================================================== -->
     <section id="buttons">
       <div class="page-header">
-        <h1>Buttons <small>bootstrap-button.js</small></h1>
+        <h1>Buttons <small>bootstrap-button.js</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -1273,7 +1280,7 @@ $('#myCollapsible').collapse.on('hidden', function () {
     ================================================== -->
     <section id="carousel">
       <div class="page-header">
-        <h1>Carousel <small>bootstrap-carousel.js</small></h1>
+        <h1>Carousel <small>bootstrap-carousel.js</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -1496,6 +1503,7 @@ $('.carousel').carousel({
         <p>Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
         <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
         <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <p>YUI3 Port lovingly crafted by <a href="http://twitter.com/jshirley">@jshirley</a> and the happy hackers at <a href="http://iinteractive.com">Infinity Interactive</a></p>
       </footer>
 
     </div><!-- /container -->
@@ -1506,10 +1514,13 @@ $('.carousel').carousel({
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript" src="assets/js/google-code-prettify/prettify.js"></script>
     <script type="text/javascript" src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
     <script type="text/javascript" src="assets/yui/config.js"></script>
     <script type="text/javascript">
-    YUI().use('gallery-bootstrap');
+    YUI().use('gallery-bootstrap', function(Y) {
+        window.prettyPrint && prettyPrint();
+    });
     </script>
 
 
