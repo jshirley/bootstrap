@@ -79,7 +79,7 @@
       ================================================== -->
       <header class="jumbotron subhead" id="overview">
         <h1>Javascript for Bootstrap</h1>
-        <p class="lead">Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://jquery.com/" target="_blank">jQuery</a> plugins.
+        <p class="lead">Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://yuilibrary.com/" target="_blank">YUI3</a> plugins.
         <div class="subnav">
           <ul class="nav nav-pills">
             <li><a href="#javascript">All plugins</a></li>
@@ -103,7 +103,7 @@
       ================================================== -->
       <section id="javascript">
         <div class="page-header">
-          <h1>jQuery plugins <small>A dozen Bootstrap plugins to get you started</small></h1>
+          <h1>YUI3 plugins <small>A dozen Bootstrap plugins to get you started</small></h1>
         </div>
       <div class="row">
         <div class="span3">
@@ -135,7 +135,7 @@
         <div class="span3">
           <label>
             <h3><a href="./javascript.html#tooltips">Tooltips</a></h3>
-            <p>A new take on the jQuery Tipsy plugin, Tooltips don't rely on images&mdash;they use CSS3 for animations and data-attributes for local title storage.</p>
+            <p>A new take on the jQuery Tipsy plugin, because it's now in YUI3! These Tooltips don't rely on images&mdash;they use CSS3 for animations and data-attributes for local title storage.</p>
           </label>
         </div>
         <div class="span3">
@@ -185,7 +185,7 @@
           </label>
         </div>
       </div> <!-- /row -->
-      <div class="alert alert-info"><strong>Heads up!</strong> All javascript plugins require the latest version of jQuery.</div>
+      <div class="alert alert-info"><strong>Heads up!</strong> All this is available from the <a href="http://yuilibrary.com/yui/quick-start/">YUI3 CDN</a>. You don't need to host or include any JavaScript on your site!</div>
     </section>
 
 
@@ -194,13 +194,13 @@
     ================================================== -->
     <section id="modals">
       <div class="page-header">
-        <h1>Modals <small>bootstrap-modal.js</small></h1>
+        <h1>Modals <small>.plug( Y.Bootstrap.Modal )</small><span class="label label-important">Work In Progress</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About modals</h3>
           <p>A streamlined, but flexible, take on the traditional javascript modal plugin with only the minimum required functionality and smart defaults.</p>
-          <a href="assets/js/bootstrap-modal.js" target="_blank" class="btn">Download file</a>
+          <a href="#" target="_blank" class="btn">View Source</a>
         </div>
         <div class="span9 columns">
           <h2>Static example</h2>
@@ -222,7 +222,7 @@
           </div> <!-- /well -->
 
           <h2>Live demo</h2>
-          <p>Toggle a modal via javascript by clicking the button below. It will slide down and fade in from the top of the page.</p>
+          <p>Toggle a modal via javascript by clicking the button below. It will slide down and fade in from the top of the page <span class="label label-important">WIP: Sliding not complete</span>.</p>
           <!-- sample modal content -->
           <div id="myModal" class="modal hide fade">
             <div class="modal-header">
@@ -259,9 +259,9 @@
 
           <hr>
 
-          <h2>Using bootstrap-modal</h2>
+          <h2>Using Y.Bootstrap.Modal</h2>
           <p>Call the modal via javascript:</p>
-          <pre class="prettyprint linenums">$('#myModal').modal(options)</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').plug(Y.Bootstrap.Modal, options)</pre>
           <h3>Options</h3>
           <table class="table table-bordered table-striped">
             <thead>
@@ -322,18 +322,18 @@
           <h4>.modal(options)</h4>
           <p>Activates your content as a modal. Accepts an optional options <code>object</code>.</p>
 <pre class="prettyprint linenums">
-$('#myModal').modal({
+Y.one('#myModal').plug( Y.Bootstrap.Modal, {
   keyboard: false
-})</pre>
-          <h4>.modal('toggle')</h4>
+});</pre>
+          <h4>Y.one('#myModal').modal.toggle()</h4>
           <p>Manually toggles a modal.</p>
-          <pre class="prettyprint linenums">$('#myModal').modal('toggle')</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').modal.toggle();</pre>
           <h4>.modal('show')</h4>
           <p>Manually opens a modal.</p>
-          <pre class="prettyprint linenums">$('#myModal').modal('show')</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').modal.show();</pre>
           <h4>.modal('hide')</h4>
           <p>Manually hides a modal.</p>
-          <pre class="prettyprint linenums">$('#myModal').modal('hide')</pre>
+          <pre class="prettyprint linenums">Y.one('#myModal').modal.hide();</pre>
           <h3>Events</h3>
           <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
           <table class="table table-bordered table-striped">
@@ -364,9 +364,9 @@ $('#myModal').modal({
           </table>
 
 <pre class="prettyprint linenums">
-$('#myModal').on('hidden', function () {
+Y.one('#myModal').modal.on('hidden', function () {
   // do something…
-})</pre>
+});</pre>
         </div>
       </div>
     </section>
@@ -377,13 +377,13 @@ $('#myModal').on('hidden', function () {
     ================================================== -->
     <section id="dropdowns">
       <div class="page-header">
-        <h1>Dropdowns <small>bootstrap-dropdown.js</small></h1>
+        <h1>Dropdowns <small>.plug( Y.Bootstrap.Dropdown )</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About dropdowns</h3>
           <p>Add dropdown menus to nearly anything in Bootstrap with this simple plugin. Bootstrap features full dropdown menu support on in the navbar, tabs, and pills.</p>
-          <a href="assets/js/bootstrap-dropdown.js" target="_blank" class="btn">Download file</a>
+          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-dropdown.js" target="_blank" class="btn">Download file</a>
         </div>
         <div class="span9 columns">
           <h2>Examples</h2>
@@ -466,9 +466,9 @@ $('#myModal').on('hidden', function () {
 
           <hr>
 
-          <h2>Using bootstrap-dropdown.js</h2>
+          <h2>Using Y.Bootstrap.Dropdown</h2>
           <p>Call the dropdowns via javascript:</p>
-          <pre class="prettyprint linenums">$('.dropdown-toggle').dropdown()</pre>
+          <pre class="prettyprint linenums">Y.one('.dropdown-toggle').plug( Y.Bootstrap.Dropdown )</pre>
           <h3>Markup</h3>
           <p>To quickly add dropdown functionality to any element just add <code>data-toggle="dropdown"</code> and any valid bootstrap dropdown will automatically be activated.</p>
           <div class="alert alert-info">
@@ -508,8 +508,13 @@ $('#myModal').on('hidden', function () {
 &lt;/ul&gt;
 </pre>
           <h3>Methods</h3>
-          <h4>$().dropdown()</h4>
-          <p>A programatic api for activating menus for a given navbar or tabbed navigation.</p>
+          <p>After the node has the <code>Y.Bootstrap.Dropdown</code> plugin instantiated, the following methods are available:</p>
+          <h4>Y.one('.selector').dropdown.open()</h4>
+          <p>The <code>open</code> method will close the dropdown.</p>
+          <h4>Y.one('.selector').dropdown.close()</h4>
+          <p>The <code>close</code> method will close the dropdown.</p>
+          <h4>Y.one('.selector').dropdown.toggle()</h4>
+          <p>The <code>toggle</code> method inverses the state, if it's open it will close. Easy.</p>
         </div>
       </div>
     </section>
@@ -637,7 +642,7 @@ $('[data-spy="scroll"]').each(function () {
     ================================================== -->
     <section id="tabs">
       <div class="page-header">
-        <h1>Togglable tabs <small>bootstrap-tab.js</small></h1>
+        <h1>Togglable tabs <small>Y.Bootstrap.TabView</small> <span class="label label-info">Modified</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -647,18 +652,19 @@ $('[data-spy="scroll"]').each(function () {
         <div class="span9 columns">
           <h2>Example tabs</h2>
           <p>Click the tabs below to toggle between hidden panes, even via dropdown menus.</p>
-          <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-            <li><a href="#profile" data-toggle="tab">Profile</a></li>
+          <div id="myTab" data-toggle="tab">
+           <ul class="nav nav-tabs">
+            <li class="active"><a href="#home">Home</a></li>
+            <li><a href="#profile">Profile</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#dropdown1" data-toggle="tab">@fat</a></li>
-                <li><a href="#dropdown2" data-toggle="tab">@mdo</a></li>
+                <li><a href="#dropdown1">@fat</a></li>
+                <li><a href="#dropdown2">@mdo</a></li>
               </ul>
             </li>
-          </ul>
-          <div id="myTabContent" class="tab-content">
+           </ul>
+           <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="home">
               <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
             </div>
@@ -671,81 +677,45 @@ $('[data-spy="scroll"]').each(function () {
             <div class="tab-pane fade" id="dropdown2">
               <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
             </div>
+           </div>
           </div>
           <hr>
-          <h2>Using bootstrap-tab.js</h2>
-          <p>Enable tabbable tabs via javascript (each tab needs to be activated individually):</p>
+          <h2>Using Y.Bootstrap.Tabview</h2>
+          <p>Create a new object and pass the source node in:</p>
           <pre class="prettyprint linenums">
-$('#myTab a').click(function (e) {
-  e.preventDefault();
-  $(this).tab('show');
-})</pre>
-          <p>You can activate individual tabs in several ways:</p>
+new Y.Bootstrap.Tabview({ node: '#myTab' });
+</pre>
+          <p>It is recommended to read the <a href="http://yuilibrary.com/yui/docs/tabview/">Y.TabView User Guide</a>, which is what control is under the covers.</p>
 <pre class="prettyprint linenums">
-$('#myTab a[href="#profile"]').tab('show'); // Select tab by name
-$('#myTab a:first').tab('show'); // Select first tab
-$('#myTab a:last').tab('show'); // Select last tab
-$('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)
+var tabview = new Y.Bootstrap.Tabview({ node: '#myTab' });
+
+tabview.selectChild(2); // Select the second tab
 </pre>
           <h3>Markup</h3>
           <p>You can activate a tab or pill navigation without writing any javascript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element. Adding the <code>nav</code> and <code>nav-tabs</code> classes to the tab <code>ul</code> will apply the bootstrap tab styling.</p>
+          <div class="alert alert-warning">
+            <strong>Heads up!</strong>
+            This behavior is different and is <strong>not a direct, drop-in replacement</strong> from the jQuery version. The markup is different!
+          </div>
+          <p>You can activate a tab or pill navigation without writing any javascript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element. Adding the <code>nav</code> and <code>nav-tabs</code> classes to the tab <em>container</em> <code>&lt;div class="nav-tabs"&gt;</code>.</p>
 <pre class="prettyprint linenums">
-&lt;ul class="nav nav-tabs"&gt;
-  &lt;li&gt;&lt;a href="#home" data-toggle="tab"&gt;Home&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#profile" data-toggle="tab"&gt;Profile&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#messages" data-toggle="tab"&gt;Messages&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#settings" data-toggle="tab"&gt;Settings&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</pre>
-          <h3>Methods</h3>
-          <h4>$().tab</h4>
-          <p>
-            Activates a tab element and content container. Tab should have either a <code>data-target</code> or an <code>href</code> targeting a container node in the DOM.
-          </p>
-<pre class="prettyprint linenums">
-&lt;ul class="nav nav-tabs" id="myTab"&gt;
-  &lt;li class="active"&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+&lt;div data-toggle="tab"&gt;
+ &lt;ul class="nav nav-tabs" data-toggle="tab"&gt;
+  &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="#profile"&gt;Profile&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="#messages"&gt;Messages&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="#settings"&gt;Settings&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class="tab-content"&gt;
-  &lt;div class="tab-pane active" id="home"&gt;...&lt;/div&gt;
-  &lt;div class="tab-pane" id="profile"&gt;...&lt;/div&gt;
-  &lt;div class="tab-pane" id="messages"&gt;...&lt;/div&gt;
-  &lt;div class="tab-pane" id="settings"&gt;...&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
-  $(function () {
-    $('#myTab a:last').tab('show');
-  })
-&lt;/script&gt;</pre>
-          <h3>Events</h3>
-          <table class="table table-bordered table-striped">
-            <thead>
-             <tr>
-               <th style="width: 150px;">Event</th>
-               <th>Description</th>
-             </tr>
-            </thead>
-            <tbody>
-             <tr>
-               <td>show</td>
-               <td>This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
-            </tr>
-            <tr>
-               <td>shown</td>
-               <td>This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
-             </tr>
-            </tbody>
-          </table>
-
-          <pre class="prettyprint linenums">
-$('a[data-toggle="tab"]').on('shown', function (e) {
-  e.target // activated tab
-  e.relatedTarget // previous tab
-})</pre>
+ &lt;/ul&gt;
+&lt;/div&gt;</pre>
+          <h3>Why is this different?</h3>
+          <h4>Aria Support</h4>
+          <p>
+            <a href="http://www.w3.org/WAI/intro/aria">Aria</a> is part of the Web Accessibility Initiative. It allows dynamic and rich client experiences to be made available to people with disabilities. It's important to not limit an experience for any users, unless they are on IE. Then they deserve it.
+          </p>
+          <h4>Amazing Support &amp; Documentation</h4>
+          <p>
+            The Y.TabView control is <a href="http://yuilibrary.com/yui/docs/api/classes/TabView.html">well documented</a> and very featureful. The IRC channel (irc.freenode.org, #yui), plus the <a href="http://yuilibrary.com/forum/">forums</a> are excellent.
+          </p>
        </div>
       </div>
     </section>
@@ -755,7 +725,7 @@ $('a[data-toggle="tab"]').on('shown', function (e) {
     ================================================== -->
     <section id="tooltips">
       <div class="page-header">
-        <h1>Tooltips <small>bootstrap-tooltip.js</small></h1>
+        <h1>Tooltips <small>Y.Bootstrap.Tooltip</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -837,17 +807,17 @@ $('a[data-toggle="tab"]').on('shown', function (e) {
 &lt;a href="#" rel="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;
 </pre>
           <h3>Methods</h3>
-          <h4>$().tooltip(options)</h4>
-          <p>Attaches a tooltip handler to an element collection.</p>
-          <h4>.tooltip('show')</h4>
+          <h4>Y.one('.tooltip').plug( Y.Bootstrap.Tooltip, options);</h4>
+          <p>Attaches a tooltip handler to an element collection. This can be a list or individual node.</p>
+          <h4>.tooltip.show()</h4>
           <p>Reveals an element's tooltip.</p>
-          <pre class="prettyprint linenums">$('#element').tooltip('show')</pre>
-          <h4>.tooltip('hide')</h4>
+          <pre class="prettyprint linenums">Y.one('#element').tooltip.show()</pre>
+          <h4>.tooltip.hide()</h4>
           <p>Hides an element's tooltip.</p>
-          <pre class="prettyprint linenums">$('#element').tooltip('hide')</pre>
-          <h4>.tooltip('toggle')</h4>
+          <pre class="prettyprint linenums">Y.one('#element').tooltip.hide()</pre>
+          <h4>.tooltip.toggle()</h4>
           <p>Toggles an element's tooltip.</p>
-          <pre class="prettyprint linenums">$('#element').tooltip('toggle')</pre>
+          <pre class="prettyprint linenums">Y.one('#element').tooltip.toggle()</pre>
         </div>
       </div>
     </section>
@@ -858,7 +828,7 @@ $('a[data-toggle="tab"]').on('shown', function (e) {
     ================================================== -->
     <section id="popovers">
       <div class="page-header">
-        <h1>Popovers <small>bootstrap-popover.js</small></h1>
+        <h1>Popovers <small>bootstrap-popover.js</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -966,7 +936,7 @@ $('a[data-toggle="tab"]').on('shown', function (e) {
     ================================================== -->
     <section id="alerts">
       <div class="page-header">
-        <h1>Alert messages <small>bootstrap-alert.js</small></h1>
+        <h1>Alert messages <small>Y.Bootstrap.Alert</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -992,16 +962,16 @@ $('a[data-toggle="tab"]').on('shown', function (e) {
           <hr>
           <h2>Using bootstrap-alert.js</h2>
           <p>Enable dismissal of an alert via javascript:</p>
-          <pre class="prettyprint linenums">$(".alert").alert()</pre>
+          <pre class="prettyprint linenums">Y.one(".alert").plug( Y.Plugin.Alert, options )</pre>
           <h3>Markup</h3>
           <p>Just add <code>data-dismiss="alert"</code> to your close button to automatically give an alert close functionality.</p>
           <pre class="prettyprint linenums">&lt;a class="close" data-dismiss="alert" href="#"&gt;&amp;times;&lt;/a&gt;</pre>
           <h3>Methods</h3>
-          <h4>$().alert()</h4>
+          <h4>Y.one('#message').alert</h4>
           <p>Wraps all alerts with close functionality. To have your alerts animate out when closed, make sure they have the <code>.fade</code> and <code>.in</code> class already applied to them.</p>
-          <h4>.alert('close')</h4>
+          <h4>.alert.close()</h4>
           <p>Closes an alert.</p>
-          <pre class="prettyprint linenums">$(".alert").alert('close')</pre>
+          <pre class="prettyprint linenums">Y.one(".alert").alert.close()</pre>
           <h3>Events</h3>
           <p>Bootstrap's alert class exposes a few events for hooking into alert functionality.</p>
           <table class="table table-bordered table-striped">
@@ -1023,7 +993,7 @@ $('a[data-toggle="tab"]').on('shown', function (e) {
             </tbody>
           </table>
 <pre class="prettyprint linenums">
-$('#my-alert').bind('closed', function () {
+Y.one('#my-alert').on('closed', function () {
   // do something…
 })</pre>
         </div>
@@ -1036,7 +1006,7 @@ $('#my-alert').bind('closed', function () {
     ================================================== -->
     <section id="buttons">
       <div class="page-header">
-        <h1>Buttons <small>bootstrap-button.js</small></h1>
+        <h1>Buttons <small>bootstrap-button.js</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -1143,14 +1113,14 @@ $('#my-alert').bind('closed', function () {
     ================================================== -->
     <section id="collapse">
       <div class="page-header">
-        <h1>Collapse <small>bootstrap-collapse.js</small></h1>
+        <h1>Collapse <small>.plug( Y.Bootstrap.Collapse );</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About</h3>
           <p>Get base styles and flexible support for collapsible components like accordions and navigation.</p>
-          <a href="assets/js/bootstrap-collapse.js" target="_blank" class="btn">Download file</a>
-          <p class="muted"><strong>*</strong> Requires the Transitions plugin to be included.</p>
+          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-collapse.js" target="_blank" class="btn">View Source</a>
+          <p class="muted">If the browser supports css3 transitions, smooth animations will be enabled automatically.</p>
        </div>
         <div class="span9 columns">
           <h2>Example accordion</h2>
@@ -1197,9 +1167,9 @@ $('#my-alert').bind('closed', function () {
 
 
           <hr>
-          <h2>Using bootstrap-collapse.js</h2>
+          <h2>Using gallery-bootstrap-collapse</h2>
           <p>Enable via javascript:</p>
-          <pre class="prettyprint linenums">$(".collapse").collapse()</pre>
+          <pre class="prettyprint linenums">$(".collapse").plug( Y.Bootstrap.Collapse );</pre>
           <h3>Options</h3>
           <table class="table table-bordered table-striped">
             <thead>
@@ -1212,16 +1182,22 @@ $('#my-alert').bind('closed', function () {
             </thead>
             <tbody>
              <tr>
-               <td>parent</td>
+               <td>groupSelector</td>
                <td>selector</td>
-               <td>false</td>
-               <td>If selector then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior)</td>
+               <td>&gt; .accordion-group &gt; .in</td>
+               <td>Selector to use to collapse all elements under the specified parent (similar to traditional accordion behavior)</td>
              </tr>
              <tr>
-               <td>toggle</td>
-               <td>boolean</td>
-               <td>true</td>
-               <td>Toggles the collapsible element on invocation</td>
+               <td>duration</td>
+               <td>number</td>
+               <td>0.25</td>
+               <td>Seconds to animate the closing using transitions.</td>
+             </tr>
+            <tr>
+               <td>easing</td>
+               <td>String</td>
+               <td>ease-in</td>
+               <td>What type of easing to use for the transitions.</td>
              </tr>
             </tbody>
           </table>
@@ -1238,21 +1214,22 @@ $('#my-alert').bind('closed', function () {
             To add accordion-like group management to a collapsible control, add the data attribute <code>data-parent="#selector"</code>. Refer to the demo to see this in action.
           </div>
           <h3>Methods</h3>
-          <h4>.collapse(options)</h4>
-          <p>Activates your content as a collapsible element. Accepts an optional options <code>object</code>.
+          <h4>Plug it in!</h4>
+          <p>First, plug in the <code>Y.Bootstrap.Collapse</code> to the node. Accepts an optional options <code>object</code>.
 <pre class="prettyprint linenums">
-$('#myCollapsible').collapse({
-  toggle: false
+Y.one('#myCollapsible').plug( Y.Bootstrap.Collapse, {
+  duration: 1
 })</pre>
-          <h4>.collapse('toggle')</h4>
+          <h4>.collapse.toggle()</h4>
           <p>Toggles a collapsible element to shown or hidden.</p>
-          <h4>.collapse('show')</h4>
+          <h4>.collapse.show()</h4>
           <p>Shows a collapsible element.</p>
-          <h4>.collapse('hide')</h4>
+          <h4>.collapse.hide()</h4>
           <p>Hides a collapsible element.</p>
           <h3>Events</h3>
           <p>
             Bootstrap's collapse class exposes a few events for hooking into collapse functionality.
+            Events are not on the node, they are on the <em>plugin</em> accessor. This prevents collisions between multiple plugins.
           </p>
           <table class="table table-bordered table-striped">
             <thead>
@@ -1284,7 +1261,7 @@ $('#myCollapsible').collapse({
           </table>
 
 <pre class="prettyprint linenums">
-$('#myCollapsible').on('hidden', function () {
+$('#myCollapsible').collapse.on('hidden', function () {
   // do something…
 })</pre>
         </div>
@@ -1292,12 +1269,11 @@ $('#myCollapsible').on('hidden', function () {
     </section>
 
 
-
      <!-- Carousel
     ================================================== -->
     <section id="carousel">
       <div class="page-header">
-        <h1>Carousel <small>bootstrap-carousel.js</small></h1>
+        <h1>Carousel <small>bootstrap-carousel.js</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -1431,25 +1407,33 @@ $('.carousel').carousel({
     ================================================== -->
     <section id="typeahead">
       <div class="page-header">
-        <h1>Typeahead <small>bootstrap-typeahead.js</small></h1>
+        <h1>Typeahead <small>.plug( Y.Bootstrap.Tooltip )</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About</h3>
           <p>A basic, easily extended plugin for quickly creating elegant typeaheads with any form text input.</p>
-          <a href="assets/js/bootstrap-typeahead.js" target="_blank" class="btn">Download file</a>
+          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-typeahead.js" target="_blank" class="btn">View Source</a>
         </div>
         <div class="span9 columns">
-          <h2>Example</h2>
-          <p>Start typing in the field below to show the typeahead results.</p>
+          <h2>Example with Local Data</h2>
+          <p>Start typing a US state (like California) in the field below to show the typeahead results.</p>
           <div class="well">
             <input type="text" class="span3" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
           </div>
           <hr>
-          <h2>Using bootstrap-typeahead.js</h2>
+          <h2>Example with YQL</h2>
+          <p>Start typing something and a YQL query will be issued, all configured through the data-source attribute (and using data-locator).</p>
+          <div class="well">
+            <input type="text" class="span3" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source='select * from local.search where zip="94085" and query="{query}"' data-text-locator="Title" data-list-locator="query.results.Result">
+          </div>
+          <hr>
+
+          <h2>Using Y.Bootstrap.Typeahead</h2>
           <p>Call the typeahead via javascript:</p>
-          <pre class="prettyprint linenums">$('.typeahead').typeahead()</pre>
+          <pre class="prettyprint linenums">Y.one('.typeahead').plug( Y.Bootstrap.Typeahead, { source : [ 'a', 'b', 'c' ] } )</pre>
           <h3>Options</h3>
+          <p>Any option passed in will be sent to Y.AutoComplete, with some sensible defaults to attempt to closely match default Bootstrap behavior. Look at <a href="http://yuilibrary.com/yui/docs/autocomplete/#configuring-autocomplete">the configuration guide</a> for all options available to you.</p>
           <table class="table table-bordered table-striped">
             <thead>
              <tr>
@@ -1462,33 +1446,27 @@ $('.carousel').carousel({
             <tbody>
               <tr>
                <td>source</td>
-               <td>array</td>
+               <td>String|Array</td>
                <td>[ ]</td>
                <td>The data source to query against.</td>
              </tr>
              <tr>
-               <td>items</td>
-               <td>number</td>
+               <td>maxResults</td>
+               <td>Integer</td>
                <td>8</td>
                <td>The max number of items to display in the dropdown.</td>
              </tr>
              <tr>
-               <td>matcher</td>
-               <td>function</td>
-               <td>case insensitive</td>
-               <td>The method used to determine if a query matches an item. Accepts a single argument, the <code>item</code> against which to test the query. Access the current query with <code>this.query</code>. Return a boolean <code>true</code> if query is a match.</td>
+               <td>resultFilters</td>
+               <td>String|Function</td>
+               <td>phraseMatch, case insensitive</td>
+               <td>The method used to determine if a query matches an item. See <a href="http://yuilibrary.com/yui/docs/autocomplete/ac-local.html">the Basic Local Data</a> example.</td>
              </tr>
              <tr>
-               <td>sorter</td>
-               <td>function</td>
-               <td>exact match,<br> case sensitive,<br> case insensitive</td>
-               <td>Method used to sort autocomplete results. Accepts a single argument <code>items</code> and has the scope of the typeahead instance. Reference the current query with <code>this.query</code>.</td>
-             </tr>
-             <tr>
-               <td>highlighter</td>
-               <td>function</td>
-               <td>highlights all default matches</td>
-               <td>Method used to highlight autocomplete results. Accepts a single argument <code>item</code> and has the scope of the typeahead instance. Should return html.</td>
+               <td>resultHighlighter</td>
+               <td>String|Function</td>
+               <td>phraseMatch, highlight matches</td>
+               <td>See <a href="http://yuilibrary.com/yui/docs/autocomplete/#writing-result-highlighters">the guide</a> for how to write your own highlighter. The default highlighter shows the text matching.</td>
              </tr>
             </tbody>
           </table>
@@ -1498,12 +1476,18 @@ $('.carousel').carousel({
 <pre class="prettyprint linenums">
 &lt;input type="text" data-provide="typeahead"&gt;
 </pre>
-          <h3>Methods</h3>
-          <h4>.typeahead(options)</h4>
-          <p>Initializes an input with a typeahead.</p>
+          <p>A very full featured typeahead control can be created with <strong>no javascript</strong>.</p>
+<pre class="prettyprint linenums">
+&lt;input type="text" data-provide="typeahead"
+    data-source='select * from local.search where zip="94085" and query="{query}"'
+    data-text-locator="Title" &lt;!-- What part of the resulting structure contains the displayable item? --&gt;
+    data-list-locator="query.results.Result" &lt;-- In the results, where's the needle? --&gt;
+&gt;
+</pre>
         </div>
       </div>
     </section>
+
 
      <!-- Footer
       ================================================== -->
@@ -1522,37 +1506,12 @@ $('.carousel').carousel({
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/google-code-prettify/prettify.js"></script>
-    <script src="assets/js/bootstrap-transition.js"></script>
-    <script src="assets/js/bootstrap-alert.js"></script>
-    <script src="assets/js/bootstrap-modal.js"></script>
-    <script src="assets/js/bootstrap-dropdown.js"></script>
-    <script src="assets/js/bootstrap-scrollspy.js"></script>
-    <script src="assets/js/bootstrap-tab.js"></script>
-    <script src="assets/js/bootstrap-tooltip.js"></script>
-    <script src="assets/js/bootstrap-popover.js"></script>
-    <script src="assets/js/bootstrap-button.js"></script>
-    <script src="assets/js/bootstrap-collapse.js"></script>
-    <script src="assets/js/bootstrap-carousel.js"></script>
-    <script src="assets/js/bootstrap-typeahead.js"></script>
-    <script src="assets/js/application.js"></script>
-
-    <!-- Analytics
-    ================================================== -->
-    <script>
-      var _gauges = _gauges || [];
-      (function() {
-        var t   = document.createElement('script');
-        t.type  = 'text/javascript';
-        t.async = true;
-        t.id    = 'gauges-tracker';
-        t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
-        t.src = '//secure.gaug.es/track.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(t, s);
-      })();
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+    <script type="text/javascript" src="assets/yui/config.js"></script>
+    <script type="text/javascript">
+    YUI().use('gallery-bootstrap');
     </script>
+
 
   </body>
 </html>
