@@ -1,18 +1,25 @@
 (function() {
-    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'min';
+    var filter  = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'min',
+        gallery = 'gallery-blead', //'ii-gallery-2012.05.16',
+        cdn     = 'http://cdn.prg.local:5006/combo?';
 
     // YUI Config.
     YUI_config = {
         filter     : filter,
         combine    : filter === 'min',
         allowRollup: false,
-        gallery    : 'ii-gallery-2012.05.16',
+        gallery    : gallery,
+        modules : {
+            'gallery-bootstrap-misc' : {
+                fullpath : 'http://localhost/~jshirley/yui3-gallery/build/gallery-bootstrap-misc/gallery-bootstrap-misc-debug.js'
+            }
+        },
         groups : {
             customgallery : {
                 combine   : true,
-                comboBase : 'http://yui.shirley.im/combo?',
-                root      : 'ii-gallery-2012.05.16/build/',
-                base      : '/ii-gallery-2012.05.16/build/',
+                comboBase : cdn,
+                root      : gallery + '/build/',
+                base      : '/' + gallery + '/build/',
                 patterns  : {
                     "gallery-"    : {},
                     "gallerycss-" : { type : "css" }
@@ -20,9 +27,9 @@
             },
             customgallerycss : {
                 combine   : true,
-                comboBase : 'http://yui.shirley.im/combo?',
-                root      : 'ii-gallery-2012.05.16/build/',
-                base      : '/ii-gallery-2012.05.16/build/'
+                comboBase : cdn,
+                root      : gallery + '/build/',
+                base      : '/' + gallery + '/build/'
            }
        }
     };
