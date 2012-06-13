@@ -1,7 +1,7 @@
       <!-- Masthead
       ================================================== -->
       <header class="jumbotron subhead" id="overview">
-        <h1>{{_i}}Javascript for Bootstrap{{/i}}</h1>
+        <h1>{{_i}}JavaScript for Bootstrap{{/i}}</h1>
         <p class="lead">{{_i}}Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://yuilibrary.com/" target="_blank">YUI3</a> plugins.{{/i}}
         <div class="subnav">
           <ul class="nav nav-pills">
@@ -22,13 +22,13 @@
       </header>
 
 
-      <!-- Using Javascript w/ Bootstrap
+      <!-- Using JavaScript w/ Bootstrap
       ================================================== -->
       <section id="javascript">
         <div class="page-header">
-          <h1>{{_i}}YUI3 plugins{{/i}} <small>{{_i}}A dozen Bootstrap plugins to get you started{{/i}}</small></h1>
+          <h1>{{_i}}YUI plugins{{/i}} <small>{{_i}}A dozen Bootstrap plugins to get you started{{/i}}</small></h1>
           <hr>
-          <p>{{_i}}YUI3 is a fantastic, robust and stable JavaScript library. It delivers combo loading, code hosting, app frameworks, accessibility through ARIA and many other features <em>for free</em>. Just remove that crufty jQuery and switch easily to the YUI3 port.{{/i}}</p>
+          <p>{{_i}}YUI is a fantastic, robust and stable JavaScript library. It delivers combo loading, code hosting, app frameworks, accessibility through ARIA and many other features <em>for free</em>. Just remove that crufty jQuery and switch easily to the YUI3 port.{{/i}}</p>
 <pre class="prettyprint linenums">
 &lt;script type="text/javascript" src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
@@ -39,7 +39,7 @@
         <div class="span3">
           <label>
             <h3><a href="./javascript.html#modals">{{_i}}Modals{{/i}}</a></h3>
-            <p>{{_i}}A streamlined, but flexible, take on the traditional javascript modal plugin with only the minimum required functionality and smart defaults.{{/i}}</p>
+            <p>{{_i}}A streamlined, but flexible, take on the traditional JavaScript modal plugin with only the minimum required functionality and smart defaults.{{/i}}</p>
           </label>
         </div>
         <div class="span3">
@@ -167,7 +167,7 @@
               <p>{{_i}}This <a href="#" class="btn popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on hover.{{/i}}</p>
 
               <h4>{{_i}}Tooltips in a modal{{/i}}</h4>
-              <p>{{_i}}<a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.{{/i}}</p>
+              <p>{{_i}}<a href="#" class="tooltip-test" rel="tooltip" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" rel="tooltip" title="Tooltip">that link</a> should have tooltips on hover.{{/i}}</p>
 
               <hr>
 
@@ -673,8 +673,8 @@ tabview.selectChild(2); // Select the second tab
           </div>
           <hr>
           <h2>{{_i}}Using{{/i}} bootstrap-tooltip.js</h2>
-          <p>{{_i}}Trigger the tooltip via javascript:{{/i}}</p>
-          <pre class="prettyprint linenums">$('#example').tooltip({{_i}}options{{/i}})</pre>
+          <p>{{_i}}Trigger the tooltip via selectors with JavaScript:{{/i}}</p>
+          <pre class="prettyprint linenums">var tooltipManager = new Y.Bootstrap.Tooltip({ selector : '*[rel=tooltip]' });</pre>
           <h3>{{_i}}Options{{/i}}</h3>
           <table class="table table-bordered table-striped">
             <thead>
