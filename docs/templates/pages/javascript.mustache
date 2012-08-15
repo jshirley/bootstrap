@@ -22,7 +22,7 @@
       </header>
 
 
-      <!-- Using Javascript w/ Bootstrap
+      <!-- Using JavaScript w/ Bootstrap
       ================================================== -->
       <section id="javascript">
         <div class="page-header">
@@ -39,7 +39,7 @@
         <div class="span3">
           <label>
             <h3><a href="./javascript.html#modals">{{_i}}Modals{{/i}}</a></h3>
-            <p>{{_i}}A streamlined, but flexible, take on the traditional javascript modal plugin with only the minimum required functionality and smart defaults.{{/i}}</p>
+            <p>{{_i}}A streamlined, but flexible, take on the traditional JavaScript modal plugin with only the minimum required functionality and smart defaults.{{/i}}</p>
           </label>
         </div>
         <div class="span3">
@@ -168,7 +168,7 @@
               <p>{{_i}}This <a href="#" class="btn popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on hover.{{/i}}</p>
 
               <h4>{{_i}}Tooltips in a modal{{/i}}</h4>
-              <p>{{_i}}<a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.{{/i}}</p>
+              <p>{{_i}}<a href="#" class="tooltip-test" rel="tooltip" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" rel="tooltip" title="Tooltip">that link</a> should have tooltips on hover.{{/i}}</p>
 
               <hr>
 
@@ -676,9 +676,9 @@ tabview.selectChild(2); // Select the second tab
             </p>
           </div>
           <hr>
-          <h2>{{_i}}Using{{/i}} Y.Bootstrap.Tooltip</h2>
-          <p>{{_i}}Trigger the tooltip via javascript:{{/i}}</p>
-          <pre class="prettyprint linenums">$('#example').tooltip({{_i}}options{{/i}})</pre>
+          <h2>{{_i}}Using{{/i}} bootstrap-tooltip.js</h2>
+          <p>{{_i}}Trigger the tooltip via selectors with JavaScript:{{/i}}</p>
+          <pre class="prettyprint linenums">var tooltipManager = new Y.Bootstrap.Tooltip({ selector : '*[rel=tooltip]' });</pre>
           <h3>{{_i}}Options{{/i}}</h3>
           <table class="table table-bordered table-striped">
             <thead>
