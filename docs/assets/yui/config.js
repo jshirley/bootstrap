@@ -1,7 +1,6 @@
 (function() {
     var filter  = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'min',
-        gallery = 'gallery-blead', //'ii-gallery-2012.05.16',
-        cdn     = 'http://cdn.prg.local:5006/combo?';
+        gallery = 'gallery-2012.08.08-20-03';
 
     // YUI Config.
     YUI_config = {
@@ -9,26 +8,19 @@
         combine    : filter === 'min',
         allowRollup: false,
         gallery    : gallery,
-        modules : {
-            'gallery-bootstrap-misc' : {
-                fullpath : 'http://localhost/~jshirley/yui3-gallery/build/gallery-bootstrap-misc/gallery-bootstrap-misc-debug.js'
-            }
-        },
         groups : {
             customgallery : {
-                combine   : true,
-                comboBase : cdn,
-                root      : gallery + '/build/',
-                base      : '/' + gallery + '/build/',
+                combine   : false,
+                root      : '/~jshirley/yui3-gallery/build/',
+                base      : '/~jshirley/yui3-gallery/build/',
                 patterns  : {
                     "gallery-"    : {},
                     "gallerycss-" : { type : "css" }
                 }
             },
             customgallerycss : {
-                combine   : true,
-                comboBase : cdn,
-                root      : gallery + '/build/',
+                combine   : false,
+                root      : '/~jshirley/yui3-gallery/build/',
                 base      : '/' + gallery + '/build/'
            }
        }
