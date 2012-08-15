@@ -1,28 +1,28 @@
 (function() {
-    var filter = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'min';
+    var filter  = (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'min',
+        gallery = 'gallery-2012.08.08-20-03';
 
     // YUI Config.
     YUI_config = {
         filter     : filter,
         combine    : filter === 'min',
         allowRollup: false,
-        gallery    : 'ii-gallery-2012.05.16',
+        gallery    : gallery,
         groups : {
             customgallery : {
-                combine   : true,
-                comboBase : 'http://yui.shirley.im/combo?',
-                root      : 'ii-gallery-2012.05.16/build/',
-                base      : '/ii-gallery-2012.05.16/build/',
+                filter    : 'debug',
+                combine   : false,
+                root      : 'http://yui.shirley.im/combo?blead-bootstrap/build/',
+                base      : 'http://yui.shirley.im/combo?blead-bootstrap/build/',
                 patterns  : {
                     "gallery-"    : {},
                     "gallerycss-" : { type : "css" }
                 }
             },
             customgallerycss : {
-                combine   : true,
-                comboBase : 'http://yui.shirley.im/combo?',
-                root      : 'ii-gallery-2012.05.16/build/',
-                base      : '/ii-gallery-2012.05.16/build/'
+                combine   : false,
+                root      : 'http://yui.shirley.im/combo?blead-bootstrap/build/',
+                base      : 'http://yui.shirley.im/combo?blead-bootstrap/build/',
            }
        }
     };

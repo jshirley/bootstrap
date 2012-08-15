@@ -78,8 +78,8 @@
       <!-- Masthead
       ================================================== -->
       <header class="jumbotron subhead" id="overview">
-        <h1>Javascript for Bootstrap</h1>
-        <p class="lead">Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://yuilibrary.com/" target="_blank">YUI3</a> plugins.
+        <h1>JavaScript for Bootstrap</h1>
+        <p class="lead">Bring Bootstrap's components to life&mdash;now with 12 custom <a href="http://yuilibrary.com/" target="_blank">YUI</a> plugins.
         <div class="subnav">
           <ul class="nav nav-pills">
             <li><a href="#javascript">All plugins</a></li>
@@ -99,15 +99,15 @@
       </header>
 
 
-      <!-- Using Javascript w/ Bootstrap
+      <!-- Using JavaScript w/ Bootstrap
       ================================================== -->
       <section id="javascript">
         <div class="page-header">
-          <h1>YUI3 plugins <small>A dozen Bootstrap plugins to get you started</small></h1>
+          <h1>YUI plugins <small>A dozen Bootstrap plugins to get you started</small></h1>
           <hr>
-          <p>YUI3 is a fantastic, robust and stable JavaScript library. It delivers combo loading, code hosting, app frameworks, accessibility through ARIA and many other features <em>for free</em>. Just remove that crufty jQuery and switch easily to the YUI3 port.</p>
+          <p>YUI is a fantastic, robust and stable JavaScript library. It delivers combo loading, code hosting, app frameworks, accessibility through ARIA and many other features <em>for free</em>. Get all this for free when you switch to the YUI port. You don't need to download or host any JavaScript yourself, just include the following 4 lines.</p>
 <pre class="prettyprint linenums">
-&lt;script type="text/javascript" src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
   YUI().use('gallery-bootstrap');
 &lt;/script&gt;</pre>
@@ -116,7 +116,7 @@
         <div class="span3">
           <label>
             <h3><a href="./javascript.html#modals">Modals</a></h3>
-            <p>A streamlined, but flexible, take on the traditional javascript modal plugin with only the minimum required functionality and smart defaults.</p>
+            <p>A streamlined, but flexible, take on the traditional JavaScript modal plugin with only the minimum required functionality and smart defaults.</p>
           </label>
         </div>
         <div class="span3">
@@ -129,7 +129,7 @@
           <label>
             <h3><a href="./javascript.html#scrollspy">Scrollspy</a></h3>
             <p>Use scrollspy to automatically update the links in your navbar to show the current active link based on scroll position.</p>
-          </label>
+          </label> 
         </div>
         <div class="span3">
           <label>
@@ -142,7 +142,7 @@
         <div class="span3">
           <label>
             <h3><a href="./javascript.html#tooltips">Tooltips</a></h3>
-            <p>A new take on the jQuery Tipsy plugin, because it's now in YUI3! These Tooltips don't rely on images&mdash;they use CSS3 for animations and data-attributes for local title storage.</p>
+            <p>A new take on the jQuery Tipsy plugin, because it's now in YUI! These Tooltips don't rely on images&mdash;they use CSS3 for animations and data-attributes for local title storage.</p>
           </label>
         </div>
         <div class="span3">
@@ -192,7 +192,7 @@
           </label>
         </div>
       </div> <!-- /row -->
-      <div class="alert alert-info"><strong>Heads up!</strong> All this is available from the <a href="http://yuilibrary.com/yui/quick-start/">YUI3 CDN</a>. You don't need to host or include any JavaScript on your site!</div>
+      <div class="alert alert-info"><strong>Heads up!</strong> All this is available from the <a href="http://yuilibrary.com/yui/quick-start/">YUI CDN</a>. You don't need to host or include any JavaScript on your site!</div>
     </section>
 
 
@@ -201,13 +201,14 @@
     ================================================== -->
     <section id="modals">
       <div class="page-header">
-        <h1>Modals <small>.plug( Y.Bootstrap.Modal )</small><span class="label label-important">Work In Progress</span></h1>
+        <h1>Modals <small>YUI().use('gallery-bootstrap-modal')</small><span class="label label-important">Work In Progress</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About modals</h3>
           <p>A streamlined, but flexible, take on the traditional javascript modal plugin with only the minimum required functionality and smart defaults.</p>
-          <a href="#" target="_blank" class="btn">View Source</a>
+          <a href="http://jshirley.github.com/yui3-gallery/classes/Bootstrap.TabView.html" target="_blank" class="btn">API Docs</a>
+          <a href="https://github.com/jshirley/yui3-gallery/blob/master/src/gallery-bootstrap-tabview/js/bootstrap-tabview.js" target="_blank" class="btn btn-info">View Source</a>
         </div>
         <div class="span9 columns">
           <h2>Static example</h2>
@@ -244,7 +245,7 @@
               <p>This <a href="#" class="btn popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on hover.</p>
 
               <h4>Tooltips in a modal</h4>
-              <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.</p>
+              <p><a href="#" class="tooltip-test" rel="tooltip" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" rel="tooltip" title="Tooltip">that link</a> should have tooltips on hover.</p>
 
               <hr>
 
@@ -384,13 +385,14 @@ Y.one('#myModal').modal.on('hidden', function () {
     ================================================== -->
     <section id="dropdowns">
       <div class="page-header">
-        <h1>Dropdowns <small>.plug( Y.Bootstrap.Dropdown )</small></h1>
+        <h1>Dropdowns <small>YUI().use( 'gallery-bootstrap-dropdown' )</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About dropdowns</h3>
           <p>Add dropdown menus to nearly anything in Bootstrap with this simple plugin. Bootstrap features full dropdown menu support on in the navbar, tabs, and pills.</p>
-          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-dropdown.js" target="_blank" class="btn">Download file</a>
+          <a href="http://jshirley.github.com/yui3-gallery/classes/Bootstrap.Dropdown.html" target="_blank" class="btn">API Docs</a>
+          <a href="https://github.com/jshirley/yui3-gallery/blob/master/src/gallery-bootstrap-dropdown/js/bootstrap-dropdown.js" target="_blank" class="btn btn-info">View Source</a>
         </div>
         <div class="span9 columns">
           <h2>Examples</h2>
@@ -532,12 +534,13 @@ Y.one('#myModal').modal.on('hidden', function () {
     ================================================== -->
     <section id="scrollspy">
       <div class="page-header">
-        <h1>ScrollSpy <small>bootstrap-scrollspy.js</small></h1>
+        <h1>ScrollSpy <small>YUI().use('gallery-bootstrap-scrollspy')</small><span class="label label-important">Work In Progress</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <p>The ScrollSpy plugin is for automatically updating nav targets based on scroll position.</p>
-          <a href="assets/js/bootstrap-scrollspy.js" target="_blank" class="btn">Download file</a>
+          <a href="http://jshirley.github.com/yui3-gallery/classes/Bootstrap.Scrollspy.html" target="_blank" class="btn">API Docs</a>
+          <a href="https://github.com/jshirley/yui3-gallery/blob/master/src/gallery-bootstrap-scrollspy/js/bootstrap-scrollspy.js" target="_blank" class="btn btn-info">View Source</a>
         </div>
         <div class="span9 columns">
           <h2>Example navbar with scrollspy</h2>
@@ -649,12 +652,13 @@ $('[data-spy="scroll"]').each(function () {
     ================================================== -->
     <section id="tabs">
       <div class="page-header">
-        <h1>Togglable tabs <small>Y.Bootstrap.TabView</small> <span class="label label-info">Modified</span></h1>
+        <h1>Togglable tabs <small>YUI().use('gallery-bootstrap-tabview')</small> <span class="label label-info">Modified</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <p>This plugin adds quick, dynamic tab and pill functionality for transitioning through local content.</p>
-          <a href="assets/js/bootstrap-tab.js" target="_blank" class="btn">Download file</a>
+          <a href="http://jshirley.github.com/yui3-gallery/classes/Bootstrap.Modal.html" target="_blank" class="btn">API Docs</a>
+          <a href="https://github.com/jshirley/yui3-gallery/blob/master/src/gallery-bootstrap-modal/js/bootstrap-modal.js" target="_blank" class="btn btn-info">View Source</a>
         </div>
         <div class="span9 columns">
           <h2>Example tabs</h2>
@@ -732,13 +736,14 @@ tabview.selectChild(2); // Select the second tab
     ================================================== -->
     <section id="tooltips">
       <div class="page-header">
-        <h1>Tooltips <small>Y.Bootstrap.Tooltip</small></h1>
+        <h1>Tooltips <small>YUI().use('gallery-bootstrap-tooltip')</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About Tooltips</h3>
           <p>Inspired by the excellent jQuery.tipsy plugin written by Jason Frame; Tooltips are an updated version, which don't rely on images, use css3 for animations, and data-attributes for local title storage.</p>
-          <a href="assets/js/bootstrap-tooltip.js" target="_blank" class="btn">Download file</a>
+          <a href="http://jshirley.github.com/yui3-gallery/classes/Bootstrap.Tooltip.html" target="_blank" class="btn">API Docs</a>
+          <a href="https://github.com/jshirley/yui3-gallery/blob/master/src/gallery-bootstrap-tooltip/js/bootstrap-tooltip.js" target="_blank" class="btn btn-info">View Source</a>
         </div>
         <div class="span9 columns">
           <h2>Example use of Tooltips</h2>
@@ -749,8 +754,8 @@ tabview.selectChild(2); // Select the second tab
           </div>
           <hr>
           <h2>Using bootstrap-tooltip.js</h2>
-          <p>Trigger the tooltip via javascript:</p>
-          <pre class="prettyprint linenums">$('#example').tooltip(options)</pre>
+          <p>Trigger the tooltip via selectors with JavaScript:</p>
+          <pre class="prettyprint linenums">var tooltipManager = new Y.Bootstrap.Tooltip({ selector : '*[rel=tooltip]' });</pre>
           <h3>Options</h3>
           <table class="table table-bordered table-striped">
             <thead>
@@ -835,14 +840,15 @@ tabview.selectChild(2); // Select the second tab
     ================================================== -->
     <section id="popovers">
       <div class="page-header">
-        <h1>Popovers <small>bootstrap-popover.js</small> <span class="label label-important">Incomplete</span></h1>
+        <h1>Popovers <small>YUI().use('gallery-bootstrap-popover')</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About popovers</h3>
           <p>Add small overlays of content, like those on the iPad, to any element for housing secondary information.</p>
           <p class="muted"><strong>*</strong> Requires <a href="#tooltips">Tooltip</a> to be included</p>
-          <a href="assets/js/bootstrap-popover.js" target="_blank" class="btn">Download file</a>
+          <a href="http://jshirley.github.com/yui3-gallery/classes/Bootstrap.Popover.html" target="_blank" class="btn">API Docs</a>
+          <a href="https://github.com/jshirley/yui3-gallery/blob/master/src/gallery-bootstrap-popover/js/bootstrap-popover.js" target="_blank" class="btn btn-info">View Source</a>
         </div>
         <div class="span9 columns">
           <h2>Example hover popover</h2>
@@ -851,9 +857,9 @@ tabview.selectChild(2); // Select the second tab
             <a href="#" class="btn btn-danger" rel="popover" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">hover for popover</a>
           </div>
           <hr>
-          <h2>Using bootstrap-popover.js</h2>
+          <h2>Using Y.Bootstrap.Popover</h2>
           <p>Enable popovers via javascript:</p>
-          <pre class="prettyprint linenums">$('#example').popover(options)</pre>
+          <pre class="prettyprint linenums">Y.one('#example').plug( Y.Bootstrap.PopoverPlugin, options )</pre>
           <h3>Options</h3>
           <table class="table table-bordered table-striped">
             <thead>
@@ -922,17 +928,17 @@ tabview.selectChild(2); // Select the second tab
           For performance reasons, the Tooltip and Popover data-apis are opt in. If you would like to use them just specify a selector option.
           </p>
           <h3>Methods</h3>
-          <h4>$().popover(options)</h4>
+          <h4>Y.one('#node').plug( Y.Bootstrap.PopoverPlugin, options)</h4>
           <p>Initializes popovers for an element collection.</p>
-          <h4>.popover('show')</h4>
+          <h4>.popover.show()</h4>
           <p>Reveals an elements popover.</p>
           <pre class="prettyprint linenums">$('#element').popover('show')</pre>
-          <h4>.popover('hide')</h4>
+          <h4>.popover.hide()</h4>
           <p>Hides an elements popover.</p>
           <pre class="prettyprint linenums">$('#element').popover('hide')</pre>
-          <h4>.popover('toggle')</h4>
+          <h4>.popover.toggle()</h4>
           <p>Toggles an elements popover.</p>
-          <pre class="prettyprint linenums">$('#element').popover('toggle')</pre>
+          <pre class="prettyprint linenums">Y.one('#element').popover.toggle()</pre>
         </div>
       </div>
     </section>
@@ -943,13 +949,14 @@ tabview.selectChild(2); // Select the second tab
     ================================================== -->
     <section id="alerts">
       <div class="page-header">
-        <h1>Alert messages <small>Y.Bootstrap.Alert</small></h1>
+        <h1>Alert messages <small>YUI().use('gallery-bootstrap-alert')</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About alerts</h3>
           <p>The alert plugin is a tiny class for adding close functionality to alerts.</p>
-          <a href="assets/js/bootstrap-alert.js" target="_blank" class="btn">Download</a>
+          <a href="http://jshirley.github.com/yui3-gallery/classes/Bootstrap.Alert.html" target="_blank" class="btn">API Docs</a>
+          <a href="https://github.com/jshirley/yui3-gallery/blob/master/src/gallery-bootstrap-alert/js/bootstrap-alert.js" target="_blank" class="btn btn-info">View Source</a>
         </div>
         <div class="span9 columns">
           <h2>Example alerts</h2>
@@ -967,7 +974,7 @@ tabview.selectChild(2); // Select the second tab
             </p>
           </div>
           <hr>
-          <h2>Using bootstrap-alert.js</h2>
+          <h2>Using Y.Bootstrap.Alert</h2>
           <p>Enable dismissal of an alert via javascript:</p>
           <pre class="prettyprint linenums">Y.one(".alert").plug( Y.Plugin.Alert, options )</pre>
           <h3>Markup</h3>
@@ -1013,7 +1020,7 @@ Y.one('#my-alert').on('closed', function () {
     ================================================== -->
     <section id="buttons">
       <div class="page-header">
-        <h1>Buttons <small>bootstrap-button.js</small> <span class="label label-important">Incomplete</span></h1>
+        <h1>Buttons <small>YUI().use('gallery-bootstrap-button')</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -1120,13 +1127,14 @@ Y.one('#my-alert').on('closed', function () {
     ================================================== -->
     <section id="collapse">
       <div class="page-header">
-        <h1>Collapse <small>.plug( Y.Bootstrap.Collapse );</small></h1>
+        <h1>Collapse <small>YUI().use('gallery-bootstrap-collapse')</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About</h3>
           <p>Get base styles and flexible support for collapsible components like accordions and navigation.</p>
-          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-collapse.js" target="_blank" class="btn">View Source</a>
+          <a href="http://jshirley.github.com/yui3-gallery/classes/Bootstrap.Collapse.html" target="_blank" class="btn">API Docs</a>
+          <a href="https://github.com/jshirley/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-collapse.js" target="_blank" class="btn btn-primary">View Source</a>
           <p class="muted">If the browser supports css3 transitions, smooth animations will be enabled automatically.</p>
        </div>
         <div class="span9 columns">
@@ -1176,7 +1184,7 @@ Y.one('#my-alert').on('closed', function () {
           <hr>
           <h2>Using gallery-bootstrap-collapse</h2>
           <p>Enable via javascript:</p>
-          <pre class="prettyprint linenums">Y.all(".collapse").plug( Y.Bootstrap.Collapse );</pre>
+          <pre class="prettyprint linenums">Y.one(".collapse").plug( Y.Bootstrap.Collapse );</pre>
           <h3>Options</h3>
           <table class="table table-bordered table-striped">
             <thead>
@@ -1280,7 +1288,7 @@ $('#myCollapsible').collapse.on('hidden', function () {
     ================================================== -->
     <section id="carousel">
       <div class="page-header">
-        <h1>Carousel <small>bootstrap-carousel.js</small> <span class="label label-important">Incomplete</span></h1>
+        <h1>Carousel <small>YUI().use('gallery-bootstrap-carousel')</small> <span class="label label-important">Incomplete</span></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
@@ -1414,13 +1422,14 @@ $('.carousel').carousel({
     ================================================== -->
     <section id="typeahead">
       <div class="page-header">
-        <h1>Typeahead <small>.plug( Y.Bootstrap.Tooltip )</small></h1>
+        <h1>Typeahead <small>YUI().use('gallery-bootstrap-typeahead')</small></h1>
       </div>
       <div class="row">
         <div class="span3 columns">
           <h3>About</h3>
           <p>A basic, easily extended plugin for quickly creating elegant typeaheads with any form text input.</p>
-          <a href="https://github.com/iinteractive/yui3-gallery/gallery-bootstrap-misc/src/bootstrap-typeahead.js" target="_blank" class="btn">View Source</a>
+          <a href="http://jshirley.github.com/yui3-gallery/classes/Bootstrap.Typeahead.html" target="_blank" class="btn">API Docs</a>
+          <a href="https://github.com/jshirley/yui3-gallery/gallery-bootstrap-typeahead/js/bootstrap-typeahead.js" target="_blank" class="btn btn-info">View Source</a>
         </div>
         <div class="span9 columns">
           <h2>Example with Local Data</h2>
@@ -1501,9 +1510,9 @@ $('.carousel').carousel({
       <footer class="footer">
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+        <p>YUI port by <a href="http://twitter.com/jshirley" target="_blank">@jshirley</a></p>
         <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
         <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-        <p>YUI3 Port lovingly crafted by <a href="http://twitter.com/jshirley">@jshirley</a> and the happy hackers at <a href="http://iinteractive.com">Infinity Interactive</a></p>
       </footer>
 
     </div><!-- /container -->
@@ -1515,11 +1524,13 @@ $('.carousel').carousel({
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script type="text/javascript" src="assets/js/google-code-prettify/prettify.js"></script>
-    <script type="text/javascript" src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
     <script type="text/javascript" src="assets/yui/config.js"></script>
     <script type="text/javascript">
     YUI().use('gallery-bootstrap', function(Y) {
         window.prettyPrint && prettyPrint();
+
+        var tooltipManager = new Y.Bootstrap.Tooltip({ selector : '*[rel=tooltip]' });
     });
     </script>
 
