@@ -10,9 +10,10 @@
         gallery    : gallery,
         groups : {
             customgallery : {
+                filter    : 'debug',
                 combine   : false,
-                root      : '/~jshirley/yui3-gallery/build/',
-                base      : '/~jshirley/yui3-gallery/build/',
+                root      : 'http://yui.shirley.im/combo?blead-bootstrap/build/',
+                base      : 'http://yui.shirley.im/combo?blead-bootstrap/build/',
                 patterns  : {
                     "gallery-"    : {},
                     "gallerycss-" : { type : "css" }
@@ -20,8 +21,8 @@
             },
             customgallerycss : {
                 combine   : false,
-                root      : '/~jshirley/yui3-gallery/build/',
-                base      : '/' + gallery + '/build/'
+                root      : 'http://yui.shirley.im/combo?blead-bootstrap/build/',
+                base      : 'http://yui.shirley.im/combo?blead-bootstrap/build/',
            }
        }
     };
